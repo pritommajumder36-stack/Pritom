@@ -238,6 +238,41 @@
   .proj-sup{font-family:var(--mono);font-size:.78rem;color:var(--muted);margin:0 0 16px}
   .proj-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
 
+  /* ---------- COURSEWORK TERM SELECTOR ---------- */
+  .term-nav{
+    display:flex;flex-wrap:wrap;gap:10px;
+    margin:0 0 40px;padding-bottom:26px;
+    border-bottom:1px solid var(--line);
+  }
+  .term-btn{
+    font-family:var(--mono);font-size:.8rem;letter-spacing:.03em;
+    display:inline-flex;align-items:center;gap:10px;
+    padding:11px 16px;border-radius:10px;cursor:pointer;
+    border:1.5px solid var(--line);background:var(--card);color:var(--slate);
+    transition:border-color .18s,background .18s,color .18s,transform .15s;
+  }
+  .term-btn .lv{color:var(--ink)}
+  .term-btn:hover{border-color:var(--copper);color:var(--ink);transform:translateY(-2px)}
+  .term-btn:active{transform:translateY(0)}
+  .term-btn .count{
+    font-family:var(--mono);font-size:.66rem;
+    background:rgba(70,102,132,.12);color:var(--steel);
+    border-radius:20px;padding:2px 8px;line-height:1.5;
+  }
+  .term-btn[aria-selected="true"]{
+    background:var(--ink);border-color:var(--ink);color:var(--paper);
+  }
+  .term-btn[aria-selected="true"] .lv{color:var(--paper)}
+  .term-btn[aria-selected="true"] .count{background:rgba(255,255,255,.18);color:#fff}
+
+  .term-panel{display:none}
+  .term-panel.active{display:block;animation:pageIn .4s cubic-bezier(.2,.65,.2,1) both}
+  @media (prefers-reduced-motion:reduce){.term-panel.active{animation:none}}
+  .term-caption{
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--steel);margin:0 0 20px;
+  }
+
   /* publications */
   .pubs{display:grid;gap:20px}
   .pubcard{
@@ -580,10 +615,28 @@
     <div class="sec-head">
       <p class="eyebrow">Coursework</p>
       <h2>Lab &amp; project work</h2>
-      <p>Laboratory experiments, case studies and industry studies from my BUET coursework, grouped by term. Each links to its full report, poster or slide deck — I'm adding to this as I go.</p>
+      <p>Laboratory experiments, case studies and industry studies from my BUET coursework. Pick a term to see its work — each card links to the full report, poster or slide deck.</p>
     </div>
 
-    <p class="subhead">Level 4 · Term 2</p>
+    <!-- term selector: click a term to reveal only its work -->
+    <div class="term-nav" role="tablist" aria-label="Select academic term">
+      <button class="term-btn" id="tab-l4t2" role="tab" aria-selected="true"  aria-controls="term-l4t2" data-term="l4t2">
+        <span class="lv">Level 4 · Term 2</span><span class="count">2</span>
+      </button>
+      <button class="term-btn" id="tab-l4t1" role="tab" aria-selected="false" aria-controls="term-l4t1" data-term="l4t1">
+        <span class="lv">Level 4 · Term 1</span><span class="count">8</span>
+      </button>
+      <button class="term-btn" id="tab-l3t2" role="tab" aria-selected="false" aria-controls="term-l3t2" data-term="l3t2">
+        <span class="lv">Level 3 · Term 2</span><span class="count">3</span>
+      </button>
+      <button class="term-btn" id="tab-l3t1" role="tab" aria-selected="false" aria-controls="term-l3t1" data-term="l3t1">
+        <span class="lv">Level 3 · Term 1</span><span class="count">4</span>
+      </button>
+    </div>
+
+    <!-- ===== Level 4 · Term 2 ===== -->
+    <div class="term-panel active" id="term-l4t2" role="tabpanel" aria-labelledby="tab-l4t2" tabindex="0">
+    <p class="term-caption">Level 4 · Term 2</p>
     <div class="cards">
 
       <!-- Failure analysis of tensile-failed weld -->
@@ -609,8 +662,107 @@
       </article>
 
     </div>
+    </div>
 
-    <p class="subhead">Level 3 · Term 2</p>
+    <!-- ===== Level 4 · Term 1 · MME 408 ===== -->
+    <div class="term-panel" id="term-l4t1" role="tabpanel" aria-labelledby="tab-l4t1" tabindex="0">
+    <p class="term-caption">Level 4 · Term 1 · MME 408</p>
+    <div class="cards">
+
+      <!-- Exp 01 · Immersion deposition -->
+      <article class="proj">
+        <div class="kicker">MME 408 · Electrochemical Deposition</div>
+        <h3>Immersion deposition of copper on steel</h3>
+        <p>Displacement plating of copper onto a pickled mild-steel substrate from a CuSO₄ bath, driven by the galvanic couple in which iron dissolves anodically and Cu²⁺ is reduced onto the surface. I measured the deposit's weight, thickness and coverage per unit area, compared the practical deposit against the theoretical (density × volume) value, and traced the shortfall to insufficient bath time — plus why a complexed cyanide/sulphate bath with an external current gives a more adherent, controlled coating.</p>
+        <div class="tech"><span>Immersion / displacement plating</span><span>EMF series</span><span>Pickling</span><span>Gravimetry</span><span>Surface morphology</span></div>
+        <div class="proj-actions">
+          <a class="btn btn-primary" href="immerson.pdf" target="_blank" rel="noopener">Read report (PDF) ↗</a>
+        </div>
+      </article>
+
+      <!-- Exp 02 · Strohlein total carbon -->
+      <article class="proj">
+        <div class="kicker">MME 408 · Combustion Analysis</div>
+        <h3>Total carbon in steel by the Strohlein apparatus</h3>
+        <p>Determined total carbon in a steel chip by combustion — oxidizing the sample under pure O₂ in a tube furnace, absorbing the evolved CO₂ in KOH, and reading the gas-volume change on the Strohlein burette. After a temperature- and pressure-based correction factor the result came to 0.321% C, a medium-carbon steel; the write-up covers the role of the tin flux and the H₂SO₄ oxygen dryer and places the composition on the Fe–C diagram.</p>
+        <div class="tech"><span>Combustion analysis</span><span>Gas volumetry</span><span>Fe–C diagram</span><span>Correction factor</span></div>
+        <div class="proj-actions">
+          <a class="btn btn-primary" href="Strohlein.pdf" target="_blank" rel="noopener">Read report (PDF) ↗</a>
+        </div>
+      </article>
+
+      <!-- Exp 03 · Silicon (gravimetric) -->
+      <article class="proj">
+        <div class="kicker">MME 408 · Gravimetric Analysis</div>
+        <h3>Determination of silicon in cast iron and steel</h3>
+        <p>Gravimetric silicon determination: dissolving the steel in a stock acid mixture, dehydrating silicic acid to SiO₂, igniting the precipitate at 700 °C and weighing it to give 0.434% Si. I worked through the reagent chemistry — why HCl and not HF, and why HNO₃ is added before H₂SO₄ for alloy steels — and read the sample's hardenability and DBTT behaviour against welding and galvanizing limits.</p>
+        <div class="tech"><span>Gravimetric analysis</span><span>Acid digestion</span><span>SiO₂ precipitation</span><span>Hardenability</span><span>DBTT</span></div>
+        <div class="proj-actions">
+          <a class="btn btn-primary" href="Si.pdf" target="_blank" rel="noopener">Read report (PDF) ↗</a>
+        </div>
+      </article>
+
+      <!-- Exp 04 · OES -->
+      <article class="proj">
+        <div class="kicker">MME 408 · Spectroscopic Analysis</div>
+        <h3>Chemical composition of plain-carbon steel by OES</h3>
+        <p>Measured the full elemental composition (wt%) of a plain-carbon steel by optical emission spectroscopy — sparking the polished sample at three spots, averaging, and applying CRM-based correction factors to the raw readings. The chemistry placed the steel close to AISI 1018; the discussion covers why industry favours OES's speed over XRF accuracy, why it struggles on grey cast iron, and the 100%-normalization quantification problem.</p>
+        <div class="tech"><span>OES</span><span>CRM correction</span><span>Plain-carbon steel</span><span>AISI grading</span></div>
+        <div class="proj-actions">
+          <a class="btn btn-primary" href="OES.pdf" target="_blank" rel="noopener">Read report (PDF) ↗</a>
+        </div>
+      </article>
+
+      <!-- Exp 05 · Leaching -->
+      <article class="proj">
+        <div class="kicker">MME 408 · Hydrometallurgy</div>
+        <h3>Study of leaching — ZnO in sulphuric acid</h3>
+        <p>Acid leaching of ZnO in dilute H₂SO₄, recovering zinc as zinc pyrophosphate (Zn₂P₂O₇) by gravimetry and studying how temperature and stirring drive the reaction. Mapping the results onto the five kinetic steps of leaching showed recovery rising sharply with temperature under surface-reaction (Arrhenius) control with no stirring, while at room temperature agitation lifted recovery by thinning the diffusion boundary layer.</p>
+        <div class="tech"><span>Hydrometallurgy</span><span>Leaching kinetics</span><span>Gravimetry</span><span>Arrhenius</span></div>
+        <div class="proj-actions">
+          <a class="btn btn-primary" href="leaching.pdf" target="_blank" rel="noopener">Read report (PDF) ↗</a>
+        </div>
+      </article>
+
+      <!-- Exp B1 · Weibull / flexural -->
+      <article class="proj">
+        <div class="kicker">MME 408 · Mechanical Testing &amp; Statistics</div>
+        <h3>Weibull parameters from a three-point flexural test</h3>
+        <p>Applied two-parameter Weibull statistics to the flexural strength of brittle ceramic (brick) specimens from a three-point bend test (ASTM C67-08), pooling every group's modulus-of-rupture data and extracting the Weibull modulus and normalizing stress by linear regression. I read the bimodal distribution as competing surface and internal flaws, and used the flexure-to-tensile conversion to estimate tensile strength where direct measurement isn't practical.</p>
+        <div class="tech"><span>Weibull statistics</span><span>Three-point bend</span><span>Linear regression</span><span>Weakest-link theory</span></div>
+        <div class="proj-actions">
+          <a class="btn btn-primary" href="Flexural.pdf" target="_blank" rel="noopener">Read report (PDF) ↗</a>
+        </div>
+      </article>
+
+      <!-- Exp B2 · Hematite nanoparticles -->
+      <article class="proj">
+        <div class="kicker">MME 408 · Nanomaterials Synthesis · Group</div>
+        <h3>Preparation &amp; characterization of hematite nanoparticles</h3>
+        <p>Green synthesis of α-Fe₂O₃ (hematite) nanoparticles by a modified citrate sol-gel route from iron(III) nitrate and citric acid, annealed at 300–400 °C. The product was characterized by XRD (phase-pure hematite against JCPDS 86-0550, ~81% crystallinity, fully indexed peaks), UV-Vis with a Tauc plot for the optical band gap, and SEM for size and morphology — spherical particles, narrow distribution, mean near 185 nm.</p>
+        <div class="tech"><span>Sol-gel synthesis</span><span>XRD / crystallinity</span><span>Tauc plot / band gap</span><span>SEM</span></div>
+        <div class="proj-actions">
+          <a class="btn btn-primary" href="nanoparticles.pdf" target="_blank" rel="noopener">Read report (PDF) ↗</a>
+        </div>
+      </article>
+
+      <!-- Exp B3 · PVA–hematite nanocomposite -->
+      <article class="proj">
+        <div class="kicker">MME 408 · Polymer Nanocomposites</div>
+        <h3>PVA–hematite nanocomposite film</h3>
+        <p>Fabricated a PVA–Fe₂O₃ nanocomposite film by solution casting — dissolving PVA, dispersing hematite nanoparticles, casting and drying — then probed the polymer–nanoparticle interaction by FTIR. Comparing the composite against pristine PVA showed how the O–H, C=O and C–O bands shift and broaden through hydrogen bonding and Fe–O coordination, and the report sets out practical routes to lower PVA's water solubility (crosslinking, hydrophobic grafting, nanoparticle barriers).</p>
+        <div class="tech"><span>Solution casting</span><span>PVA nanocomposite</span><span>FTIR</span><span>Hydrogen bonding</span></div>
+        <div class="proj-actions">
+          <a class="btn btn-primary" href="nanocomposite.pdf" target="_blank" rel="noopener">Read report (PDF) ↗</a>
+        </div>
+      </article>
+
+    </div>
+    </div>
+
+    <!-- ===== Level 3 · Term 2 ===== -->
+    <div class="term-panel" id="term-l3t2" role="tabpanel" aria-labelledby="tab-l3t2" tabindex="0">
+    <p class="term-caption">Level 3 · Term 2</p>
     <div class="cards">
 
       <!-- MIG welding -->
@@ -647,8 +799,11 @@
       </article>
 
     </div>
+    </div>
 
-    <p class="subhead">Level 3 · Term 1</p>
+    <!-- ===== Level 3 · Term 1 ===== -->
+    <div class="term-panel" id="term-l3t1" role="tabpanel" aria-labelledby="tab-l3t1" tabindex="0">
+    <p class="term-caption">Level 3 · Term 1</p>
     <div class="cards">
 
       <!-- MME 314 · Experiment 01 -->
@@ -695,6 +850,7 @@
         </div>
       </article>
 
+    </div>
     </div>
   </div>
 </section>
@@ -869,6 +1025,37 @@
   toggle.addEventListener('click', () => {
     const open = menu.classList.toggle('open');
     toggle.setAttribute('aria-expanded', open);
+  });
+
+  // ---------- COURSEWORK TERM TABS ----------
+  const termBtns   = Array.from(document.querySelectorAll('.term-btn'));
+  const termPanels = Array.from(document.querySelectorAll('.term-panel'));
+
+  function showTerm(term, focusBtn){
+    termBtns.forEach(b => b.setAttribute('aria-selected', b.dataset.term === term ? 'true' : 'false'));
+    termPanels.forEach(p => {
+      const on = p.id === 'term-' + term;
+      p.classList.toggle('active', on);
+      // re-trigger the entrance animation each time a panel is shown
+      if(on){ p.classList.remove('active'); void p.offsetWidth; p.classList.add('active'); }
+    });
+    if(focusBtn){
+      const btn = termBtns.find(b => b.dataset.term === term);
+      if(btn) btn.focus();
+    }
+  }
+
+  termBtns.forEach((btn, i) => {
+    btn.addEventListener('click', () => showTerm(btn.dataset.term));
+    // left/right (and Home/End) arrow navigation across the tablist
+    btn.addEventListener('keydown', (e) => {
+      let next = null;
+      if(e.key === 'ArrowRight' || e.key === 'ArrowDown') next = (i + 1) % termBtns.length;
+      else if(e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = (i - 1 + termBtns.length) % termBtns.length;
+      else if(e.key === 'Home') next = 0;
+      else if(e.key === 'End') next = termBtns.length - 1;
+      if(next !== null){ e.preventDefault(); showTerm(termBtns[next].dataset.term, true); }
+    });
   });
 </script>
 </body>
