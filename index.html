@@ -221,6 +221,24 @@
   .edu .stats{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
   .edu .stats .chip{background:transparent}
 
+  /* standout course results */
+  .grade-highlights{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+  .grade-pill{
+    display:inline-flex;align-items:baseline;gap:9px;
+    border:1px solid var(--line);border-left:3px solid var(--copper);
+    border-radius:8px;background:var(--card);padding:9px 14px;
+  }
+  .grade-pill .c{color:var(--ink);font-size:.92rem}
+  .grade-pill .g{font-family:var(--mono);font-size:.76rem;color:var(--copper-deep);letter-spacing:.02em;white-space:nowrap}
+
+  /* quiet "available on request" annotation */
+  .avail-note{
+    display:inline-flex;align-items:center;gap:.55em;
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.03em;
+    color:var(--muted);margin:14px 0 0;
+  }
+  .avail-note::before{content:"";width:16px;height:2px;background:var(--copper);display:inline-block}
+
   .subhead{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--steel);margin:44px 0 20px;padding-bottom:10px;border-bottom:1px solid var(--line)}
 
   /* research tags */
@@ -521,11 +539,17 @@
         <h3>B.Sc. in Materials and Metallurgical Engineering</h3>
         <div class="school"><a class="inst-link" href="https://mme.buet.ac.bd/" target="_blank" rel="noopener">Bangladesh University of Engineering and Technology (BUET), Dhaka<span class="ext">↗</span></a></div>
         <p class="detail">Graduated June 2026 with a CGPA of 3.64 / 4.00. Selected coursework: Phase Diagrams &amp; Transformations, Corrosion &amp; Degradation of Metals and Alloys, Mechanical Behaviour of Materials, Nanostructured Materials &amp; Thin Films, Characterisation of Materials, Surface Engineering &amp; Tribology, and Advanced Ceramics.</p>
+        <p class="detail">Top results in my focus area — functional, optical and magnetic materials:</p>
+        <div class="grade-highlights">
+          <div class="grade-pill"><span class="c">Advanced Ceramics</span><span class="g">A+ · 4.00 / 4</span></div>
+          <div class="grade-pill"><span class="c">Photonic &amp; Magnetic Materials</span><span class="g">A · 3.75 / 4</span></div>
+        </div>
         <p class="detail"><strong>Undergraduate thesis:</strong> “Investigation of Dielectric and Piezoelectric Properties of KNN with BCHfT Composite Ceramics” — developed lead-free piezoelectric ceramics and identified KNN–1&nbsp;wt% BCHfT as the optimum composition. Supervised by <a class="inst-link" href="https://mme.buet.ac.bd/peoples/ahmed-sharif-2/" target="_blank" rel="noopener">Prof. Dr. Ahmed Sharif<span class="ext">↗</span></a>.</p>
         <div class="stats">
           <div class="chip">CGPA 3.64 / 4.00</div>
           <div class="chip">Merit position 15 / 59</div>
         </div>
+        <p class="avail-note">Full transcript available on request</p>
       </div>
       <div class="edu">
         <div class="year">2018 — 2020</div>
