@@ -205,6 +205,19 @@
   .edu h3{font-size:1.35rem;margin:6px 0 4px}
   .edu .school{color:var(--ink);font-weight:500}
   .edu .detail{margin:10px 0 0;color:var(--slate)}
+
+  /* institution / external links that blend into surrounding text */
+  .inst-link{
+    color:inherit;font-weight:inherit;text-decoration:none;
+    border-bottom:1px solid var(--line);
+    transition:color .18s,border-color .18s;
+  }
+  .inst-link:hover,.inst-link:focus-visible{color:var(--copper-deep);border-bottom-color:var(--copper)}
+  .inst-link .ext{
+    font-family:var(--mono);font-size:.72em;color:var(--steel);
+    margin-left:3px;border-bottom:none;transition:color .18s;
+  }
+  .inst-link:hover .ext,.inst-link:focus-visible .ext{color:var(--copper-deep)}
   .edu .stats{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
   .edu .stats .chip{background:transparent}
 
@@ -440,7 +453,7 @@
         <p class="eyebrow">Materials &amp; Metallurgical Engineering</p>
         <h1>Pritom<br>Majumder</h1>
         <!-- EDIT: one-line positioning statement -->
-        <p class="lede">Recent <b>B.Sc. graduate from BUET</b>, preparing for graduate research abroad in materials science.</p>
+        <p class="lede">Recent <b>B.Sc. graduate from BUET</b>, seeking a funded MSc/PhD abroad in materials science.</p>
 
         <div class="chips">
           <div class="chip">B.Sc. in MME</div>
@@ -477,7 +490,7 @@
           <!-- DRAFT bio built from your documents — edit freely and send me your final version -->
           <p>I'm a Materials and Metallurgical Engineering graduate from Bangladesh University of Engineering and Technology (BUET), one of the most competitive engineering universities in Bangladesh. I completed my B.Sc. in June 2026 with a CGPA of 3.64 on a 4.00 scale, ranking 15th in a graduating class of 59.</p>
           <p>My undergraduate thesis focused on lead-free piezoelectric ceramics — synthesizing and characterizing KNN–BCHfT composites as a safer alternative to lead-based PZT. Alongside it, my coursework and lab training built a strong foundation in materials characterization, physical metallurgy, corrosion and surface engineering, and the functional behaviour of electronic ceramics. An industrial attachment at Abul Khair Steel Melting Limited added hands-on exposure to real metallurgical processing.</p>
-          <p class="draft">Now I'm preparing to pursue graduate research abroad. Add a sentence or two here about the specific problems you want to work on and why — send it to me and I'll finalize this section.</p>
+          <p>Building on that foundation, I'm now seeking a funded MSc/PhD abroad in materials science. My interests sit at the intersection of electronic, optical and magnetic materials — functional and piezoelectric ceramics, thin films, and photonic devices such as lasers, LEDs and photovoltaics — where I want to link fundamental structure–property understanding to real, working devices. Longer term, I aim to build a strong research foundation in graduate school and carry that expertise into industry, turning advanced-materials research into practical applications.</p>
         </div>
         <aside class="side-card">
           <h3>At a glance</h3>
@@ -506,9 +519,9 @@
       <div class="edu">
         <div class="year">2020 — 2026</div>
         <h3>B.Sc. in Materials and Metallurgical Engineering</h3>
-        <div class="school">Bangladesh University of Engineering and Technology (BUET), Dhaka</div>
+        <div class="school"><a class="inst-link" href="https://mme.buet.ac.bd/" target="_blank" rel="noopener">Bangladesh University of Engineering and Technology (BUET), Dhaka<span class="ext">↗</span></a></div>
         <p class="detail">Graduated June 2026 with a CGPA of 3.64 / 4.00. Selected coursework: Phase Diagrams &amp; Transformations, Corrosion &amp; Degradation of Metals and Alloys, Mechanical Behaviour of Materials, Nanostructured Materials &amp; Thin Films, Characterisation of Materials, Surface Engineering &amp; Tribology, and Advanced Ceramics.</p>
-        <p class="detail"><strong>Undergraduate thesis:</strong> “Investigation of Dielectric and Piezoelectric Properties of KNN with BCHfT Composite Ceramics” — developed lead-free piezoelectric ceramics and identified KNN–1&nbsp;wt% BCHfT as the optimum composition. Supervised by Prof. Dr. Ahmed Sharif.</p>
+        <p class="detail"><strong>Undergraduate thesis:</strong> “Investigation of Dielectric and Piezoelectric Properties of KNN with BCHfT Composite Ceramics” — developed lead-free piezoelectric ceramics and identified KNN–1&nbsp;wt% BCHfT as the optimum composition. Supervised by <a class="inst-link" href="https://mme.buet.ac.bd/peoples/ahmed-sharif-2/" target="_blank" rel="noopener">Prof. Dr. Ahmed Sharif<span class="ext">↗</span></a>.</p>
         <div class="stats">
           <div class="chip">CGPA 3.64 / 4.00</div>
           <div class="chip">Merit position 15 / 59</div>
@@ -517,7 +530,7 @@
       <div class="edu">
         <div class="year">2018 — 2020</div>
         <h3>Higher Secondary Certificate (HSC), Science</h3>
-        <div class="school">Notre Dame College, Dhaka</div>
+        <div class="school"><a class="inst-link" href="https://ndc.edu.bd/" target="_blank" rel="noopener">Notre Dame College, Dhaka<span class="ext">↗</span></a></div>
         <p class="detail">GPA 5.00 / 5.00. Science group — Physics, Chemistry, Higher Mathematics, Biology, and ICT.</p>
         <div class="stats">
           <div class="chip">GPA 5.00 / 5.00</div>
@@ -527,7 +540,7 @@
       <div class="edu">
         <div class="year">2018</div>
         <h3>Secondary School Certificate (SSC), Science</h3>
-        <div class="school">Noakhali Zilla School</div>
+        <div class="school"><a class="inst-link" href="http://www.nzs.edu.bd/" target="_blank" rel="noopener">Noakhali Zilla School<span class="ext">↗</span></a></div>
         <p class="detail">GPA 5.00 / 5.00 in the Science group.</p>
         <div class="stats">
           <div class="chip">GPA 5.00 / 5.00</div>
@@ -542,7 +555,7 @@
       <div class="edu">
         <div class="year">March 2025</div>
         <h3>Industrial Training — Materials &amp; Metallurgy</h3>
-        <div class="school">Abul Khair Steel Melting Limited (AKSML), Chittagong</div>
+        <div class="school"><a class="inst-link" href="https://abulkhairsteel.com/" target="_blank" rel="noopener">Abul Khair Steel Melting Limited (AKSML), Chittagong<span class="ext">↗</span></a></div>
         <p class="detail">Completed an industrial attachment at one of Bangladesh's largest steel producers, gaining first-hand exposure to steel melting and metallurgical processing. Recognized with a Letter of Appreciation for professionalism and work ethic.</p>
       </div>
     </div>
@@ -584,7 +597,7 @@
         <div class="kicker">Undergraduate Thesis · 2026</div>
         <h3>Investigation of Dielectric and Piezoelectric Properties of KNN with BCHfT Composite Ceramics</h3>
         <p>I developed lead-free piezoelectric ceramics as an environmentally friendly alternative to lead-based PZT, synthesizing K<sub>0.5</sub>Na<sub>0.5</sub>NbO<sub>3</sub> (KNN) modified with Ba<sub>0.85</sub>Ca<sub>0.15</sub>Hf<sub>0.1</sub>Ti<sub>0.9</sub>O<sub>3</sub> (BCHfT) by the conventional solid-state route. The composites were characterized by XRD, FE-SEM, and frequency- and temperature-dependent dielectric, impedance, and d<sub>33</sub> measurements. KNN–1&nbsp;wt% BCHfT gave the best balance of dielectric response and low loss, with the highest unpoled piezoelectric coefficient (15.5&nbsp;pC/N) of the compositions studied.</p>
-        <p class="proj-sup">Supervised by Prof. Dr. Ahmed Sharif · Department of MME, BUET</p>
+        <p class="proj-sup">Supervised by <a class="inst-link" href="https://mme.buet.ac.bd/peoples/ahmed-sharif-2/" target="_blank" rel="noopener">Prof. Dr. Ahmed Sharif<span class="ext">↗</span></a> · Department of MME, BUET</p>
         <div class="tech"><span>Solid-state synthesis</span><span>XRD</span><span>FE-SEM</span><span>Impedance spectroscopy</span><span>d<sub>33</sub></span><span>OriginPro</span></div>
         <div class="proj-actions">
           <a class="btn btn-primary" href="thesis.pdf" target="_blank" rel="noopener">Read thesis (PDF) ↗</a>
@@ -950,7 +963,7 @@
     <div class="contact-grid">
       <div>
         <p class="note">Interested in my work, or looking for a motivated graduate researcher? I'd be glad to hear from you.</p>
-        <div class="avail"><span class="pulse"></span>Seeking Fall <span class="fill" style="color:#e0a97f;border-color:#b06a3c">20XX</span> graduate admission</div>
+        <div class="avail"><span class="pulse"></span>Seeking Fall 2027 graduate admission</div>
       </div>
       <div class="clinks">
         <a class="clink" href="mailto:pritommajumder36@gmail.com"><span class="l">Email</span><span class="v">pritommajumder36@gmail.com</span></a>
