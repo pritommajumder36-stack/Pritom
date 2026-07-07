@@ -1,0 +1,849 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pritom Majumder — Materials &amp; Metallurgical Engineer</title>
+<meta name="description" content="Pritom Majumder — Materials and Metallurgical Engineering graduate from BUET, preparing for graduate research abroad." />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;450;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#eceff1;
+    --paper-top:#f3f5f6;
+    --card:#f8fafa;
+    --ink:#131d27;
+    --slate:#46535d;
+    --muted:#6a7680;
+    --copper:#b06a3c;
+    --copper-deep:#8f5227;
+    --steel:#456684;
+    --line:#d4dbde;
+    --line-soft:#e0e5e7;
+    --radius:14px;
+    --maxw:1120px;
+    --serif:"Newsreader",Georgia,serif;
+    --sans:"Inter",system-ui,-apple-system,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+  }
+
+  *{box-sizing:border-box}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--slate);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+
+  h1,h2,h3{color:var(--ink);font-family:var(--serif);font-weight:500;line-height:1.12;margin:0}
+  a{color:var(--steel);text-decoration:none}
+  a:hover{color:var(--copper-deep)}
+  img{max-width:100%;display:block}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+  /* ---- eyebrow / mono labels ---- */
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--steel);
+    display:inline-flex;
+    align-items:center;
+    gap:.6em;
+    margin:0 0 18px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;height:2px;
+    background:var(--copper);
+    display:inline-block;
+  }
+
+  /* placeholder styling — anything you still need to send me */
+  .fill{
+    color:var(--copper-deep);
+    border-bottom:1px dashed var(--copper);
+    font-style:normal;
+  }
+  .draft{color:var(--muted);font-style:italic}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(240,243,244,.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:14px 28px;
+    display:flex;align-items:center;gap:16px;
+  }
+  .brand{display:flex;align-items:center;gap:12px;margin-right:auto}
+  .tile{
+    width:38px;height:38px;border:1.5px solid var(--ink);border-radius:6px;
+    display:flex;flex-direction:column;justify-content:center;align-items:center;
+    line-height:1;position:relative;background:var(--card);
+  }
+  .tile .num{position:absolute;top:3px;left:5px;font-family:var(--mono);font-size:.42rem;color:var(--muted)}
+  .tile .sym{font-family:var(--serif);font-size:1.15rem;color:var(--ink);font-weight:500}
+  .brand .name{font-family:var(--serif);font-size:1.05rem;color:var(--ink)}
+  .brand .role{display:block;font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  nav.links{display:flex;gap:18px;align-items:center}
+  nav.links a{color:var(--slate);font-size:.9rem;font-weight:450;cursor:pointer}
+  nav.links a:hover{color:var(--ink)}
+  /* active page indicator */
+  nav.links a[data-nav]{position:relative}
+  nav.links a[data-nav].active{color:var(--ink)}
+  nav.links a[data-nav].active::after{
+    content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;
+    background:var(--copper);border-radius:2px;
+  }
+  .cv-btn{
+    font-family:var(--mono);font-size:.78rem;letter-spacing:.05em;
+    border:1.5px solid var(--ink);color:var(--ink);
+    padding:8px 16px;border-radius:8px;transition:background .18s,color .18s;
+  }
+  .cv-btn:hover{background:var(--ink);color:var(--paper)}
+  .cv-btn.active::after{display:none}
+  .menu-toggle{display:none}
+
+  /* ---------- PAGE ROUTER ---------- */
+  .page{display:none}
+  .page.active{display:block;animation:pageIn .5s cubic-bezier(.2,.65,.2,1) both}
+  @keyframes pageIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.page.active{animation:none}}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,var(--paper-top),var(--paper));}
+  .lattice{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.5}
+  .hero-inner{
+    position:relative;z-index:1;
+    max-width:var(--maxw);margin:0 auto;padding:70px 28px 76px;
+    display:grid;grid-template-columns:1.35fr .9fr;gap:56px;align-items:center;
+  }
+  .hero h1{font-size:clamp(2.9rem,6.5vw,5rem);letter-spacing:-.01em;margin:6px 0 0}
+  .hero .lede{font-size:1.18rem;max-width:34ch;margin:22px 0 30px;color:var(--slate)}
+  .hero .lede b{color:var(--ink);font-weight:600}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:30px}
+  .chip{
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.03em;
+    color:var(--slate);background:var(--card);
+    border:1px solid var(--line);border-radius:20px;padding:5px 13px;
+  }
+  .chip span{color:var(--copper-deep)}
+
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 22px;border-radius:10px;font-weight:500;font-size:.95rem;cursor:pointer;
+    transition:transform .15s,background .18s,border-color .18s,color .18s;
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--ink);color:var(--paper)}
+  .btn-primary:hover{background:#22303c;color:var(--paper)}
+  .btn-ghost{border:1.5px solid var(--line);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--ink)}
+
+  /* portrait */
+  .portrait{position:relative}
+  .portrait .frame{
+    border:1px solid var(--line);background:var(--card);
+    border-radius:var(--radius);padding:10px;
+    box-shadow:0 14px 40px -22px rgba(19,29,39,.5);
+  }
+  .portrait img{border-radius:8px;width:100%;object-fit:cover}
+  .portrait .tag{
+    position:absolute;left:-10px;bottom:22px;
+    background:var(--ink);color:var(--paper);
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;
+    padding:7px 12px;border-radius:7px;
+  }
+  .portrait .corner{position:absolute;top:-7px;right:-7px;width:26px;height:26px;
+    border-top:2px solid var(--copper);border-right:2px solid var(--copper);border-radius:0 6px 0 0}
+
+  /* ---------- SECTIONS ---------- */
+  .block{padding:72px 0;border-bottom:1px solid var(--line-soft)}
+  .block:last-child{border-bottom:none}
+  .sec-head{margin-bottom:40px;max-width:64ch}
+  .sec-head h2{font-size:clamp(1.7rem,3.4vw,2.4rem)}
+  .sec-head p{margin:14px 0 0;color:var(--muted);font-size:1.02rem}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:start}
+  .about-grid p{font-size:1.12rem;line-height:1.8;margin:0 0 18px;color:var(--slate)}
+  .about-grid p:first-child{font-family:var(--serif);font-size:1.32rem;line-height:1.6;color:var(--ink)}
+  .side-card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px;
+  }
+  .side-card h3{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--steel);margin-bottom:16px}
+  .side-card dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 16px}
+  .side-card dt{font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+  .side-card dd{margin:0;color:var(--ink);font-size:.92rem;text-align:right}
+
+  /* education / experience timeline */
+  .timeline{position:relative;padding-left:26px}
+  .timeline::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--line)}
+  .edu{position:relative;padding-bottom:34px}
+  .edu:last-child{padding-bottom:0}
+  .edu::before{content:"";position:absolute;left:-25px;top:6px;width:12px;height:12px;border-radius:50%;
+    background:var(--paper);border:2px solid var(--copper)}
+  .edu .year{font-family:var(--mono);font-size:.78rem;color:var(--steel);letter-spacing:.04em}
+  .edu h3{font-size:1.35rem;margin:6px 0 4px}
+  .edu .school{color:var(--ink);font-weight:500}
+  .edu .detail{margin:10px 0 0;color:var(--slate)}
+  .edu .stats{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .edu .stats .chip{background:transparent}
+
+  .subhead{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--steel);margin:44px 0 20px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+
+  /* research tags */
+  .tags{display:flex;flex-wrap:wrap;gap:12px}
+  .tag{
+    border:1px solid var(--line);border-radius:10px;background:var(--card);
+    padding:14px 18px;font-family:var(--mono);font-size:.86rem;color:var(--ink);
+    display:flex;align-items:center;gap:10px;transition:border-color .18s,transform .15s;
+  }
+  .tag:hover{border-color:var(--copper);transform:translateY(-2px)}
+  .tag .dot{width:8px;height:8px;border-radius:50%;background:var(--steel)}
+  .tag:nth-child(3n) .dot{background:var(--copper)}
+
+  /* projects */
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .proj{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px;transition:border-color .18s,transform .15s,box-shadow .18s;
+  }
+  .proj:hover{border-color:var(--copper);transform:translateY(-3px);box-shadow:0 16px 40px -28px rgba(19,29,39,.55)}
+  .proj .kicker{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--copper-deep)}
+  .proj h3{font-size:1.28rem;margin:12px 0 10px}
+  .proj p{margin:0 0 16px;font-size:.98rem;color:var(--slate)}
+  .proj .tech{display:flex;flex-wrap:wrap;gap:7px}
+  .proj .tech span{font-family:var(--mono);font-size:.72rem;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:3px 9px}
+  .proj-feature{grid-column:1/-1}
+  .proj-feature h3{font-size:1.5rem;line-height:1.25;max-width:34ch}
+  .proj-sup{font-family:var(--mono);font-size:.78rem;color:var(--muted);margin:0 0 16px}
+  .proj-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+
+  /* publications */
+  .pubs{display:grid;gap:20px}
+  .pubcard{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px 28px;transition:border-color .18s,transform .15s,box-shadow .18s;
+  }
+  .pubcard:hover{border-color:var(--copper);transform:translateY(-3px);box-shadow:0 16px 40px -28px rgba(19,29,39,.55)}
+  .pubcard .top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+  .pill{
+    font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;
+    padding:4px 11px;border-radius:20px;
+    border:1px solid var(--copper);color:var(--copper-deep);background:rgba(176,106,60,.07);
+    display:inline-flex;align-items:center;gap:7px;
+  }
+  .pill .pulse{width:7px;height:7px;border-radius:50%;background:var(--copper);
+    box-shadow:0 0 0 0 rgba(176,106,60,.5);animation:pulse 2.4s infinite}
+  .pill.type{border-color:var(--line);color:var(--steel);background:transparent}
+  .pubcard h3{font-size:1.26rem;line-height:1.32;margin:2px 0 10px;max-width:56ch}
+  .pubcard .authors{color:var(--slate);font-size:.92rem;margin:0 0 12px}
+  .pubcard .authors b{color:var(--ink)}
+  .pubcard p{margin:0 0 4px;font-size:.99rem;color:var(--slate)}
+  .pubcard .tech{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+  .pubcard .tech span{font-family:var(--mono);font-size:.72rem;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:3px 9px}
+  .pubcard .venue{font-family:var(--mono);font-size:.76rem;color:var(--muted);margin-top:14px}
+
+  /* skills */
+  .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .skillcol h3{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+  .skillcol ul{list-style:none;margin:0;padding:0}
+  .skillcol li{padding:7px 0;color:var(--ink);font-size:.95rem;display:flex;align-items:baseline;gap:10px}
+  .skillcol li::before{content:"—";color:var(--copper);font-family:var(--mono)}
+
+  /* contact */
+  .contact{background:var(--ink);color:#c9d3da;border:none}
+  .contact .sec-head h2,.contact h3{color:#fff}
+  .contact .sec-head p{color:#93a2ac}
+  .contact .eyebrow{color:#9ab0c2}
+  .contact .eyebrow::before{background:var(--copper)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .clinks{display:grid;gap:2px}
+  .clink{
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+    padding:16px 4px;border-bottom:1px solid rgba(255,255,255,.12);
+    color:#e7edf1;transition:padding .18s;
+  }
+  .clink:hover{padding-left:12px;color:#fff}
+  .clink .l{font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:#8ea3b3}
+  .clink .v{font-size:1rem}
+  .clink .v .fill{color:#e0a97f;border-color:#b06a3c}
+  .contact .note{font-size:1.15rem;font-family:var(--serif);color:#fff;line-height:1.5}
+  .contact .avail{margin-top:20px;display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.8rem;color:#9ab0c2}
+  .contact .avail .pulse{width:9px;height:9px;border-radius:50%;background:#6fae7d;box-shadow:0 0 0 0 rgba(111,174,125,.6);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(176,106,60,.5)}70%{box-shadow:0 0 0 9px rgba(176,106,60,0)}100%{box-shadow:0 0 0 0 rgba(176,106,60,0)}}
+  @media (prefers-reduced-motion:reduce){.contact .avail .pulse,.pill .pulse{animation:none}}
+
+  footer{padding:34px 0;text-align:center}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+  footer p{margin:0;font-family:var(--mono);font-size:.76rem;color:var(--muted);letter-spacing:.04em}
+
+  :focus-visible{outline:2px solid var(--copper);outline-offset:3px;border-radius:4px}
+  h1:focus-visible,h2:focus-visible{outline:none}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:1080px){
+    nav.links{gap:13px}
+    nav.links a{font-size:.84rem}
+  }
+  @media (max-width:860px){
+    .hero-inner{grid-template-columns:1fr;gap:40px}
+    .portrait{max-width:360px}
+    .about-grid{grid-template-columns:1fr;gap:28px}
+    .cards{grid-template-columns:1fr}
+    .skills{grid-template-columns:1fr;gap:30px}
+    .contact-grid{grid-template-columns:1fr;gap:28px}
+    nav.links{
+      display:none;position:absolute;top:100%;left:0;right:0;
+      flex-direction:column;gap:0;background:var(--paper-top);
+      border-bottom:1px solid var(--line);padding:8px 0;
+    }
+    nav.links.open{display:flex}
+    nav.links a{padding:12px 28px;width:100%}
+    nav.links a[data-nav].active::after{display:none}
+    nav.links a[data-nav].active{color:var(--copper-deep)}
+    nav.links .cv-btn{margin:8px 28px;text-align:center}
+    .menu-toggle{
+      display:flex;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px;
+    }
+    .menu-toggle span{width:22px;height:2px;background:var(--ink);display:block}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#about" aria-label="Pritom Majumder — home">
+      <span class="tile"><span class="num">·</span><span class="sym">Pm</span></span>
+      <span>
+        <span class="name">Pritom Majumder</span>
+        <span class="role">Materials &amp; Metallurgical Eng.</span>
+      </span>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="links" id="menu">
+      <a data-nav href="#about">About</a>
+      <a data-nav href="#education">Education</a>
+      <a data-nav href="#research">Research</a>
+      <a data-nav href="#projects">Projects</a>
+      <a data-nav href="#coursework">Coursework</a>
+      <a data-nav href="#publications">Publications</a>
+      <a data-nav href="#skills">Skills</a>
+      <a data-nav href="#contact">Contact</a>
+      <a class="cv-btn" href="cv.pdf">Download CV ↓</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ PAGE: ABOUT (landing) ============ -->
+<section class="page active" id="about" aria-label="About Pritom Majumder">
+
+  <!-- Hero -->
+  <div class="hero">
+    <svg class="lattice" viewBox="0 0 1200 620" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <pattern id="lat" width="86" height="74" patternUnits="userSpaceOnUse" patternTransform="translate(0 0)">
+          <g stroke="#456684" stroke-width="1" opacity="0.35">
+            <line x1="0" y1="0" x2="43" y2="37"/>
+            <line x1="86" y1="0" x2="43" y2="37"/>
+            <line x1="0" y1="74" x2="43" y2="37"/>
+            <line x1="86" y1="74" x2="43" y2="37"/>
+            <line x1="0" y1="0" x2="86" y2="0"/>
+            <line x1="0" y1="0" x2="0" y2="74"/>
+          </g>
+          <g fill="#456684">
+            <circle cx="0" cy="0" r="2.6"/>
+            <circle cx="86" cy="0" r="2.6"/>
+            <circle cx="0" cy="74" r="2.6"/>
+            <circle cx="86" cy="74" r="2.6"/>
+            <circle cx="43" cy="37" r="2.6"/>
+          </g>
+        </pattern>
+        <radialGradient id="fade" cx="72%" cy="40%" r="70%">
+          <stop offset="0%" stop-color="#fff" stop-opacity="0"/>
+          <stop offset="100%" stop-color="#eceff1" stop-opacity="1"/>
+        </radialGradient>
+      </defs>
+      <rect width="1200" height="620" fill="url(#lat)"/>
+      <g fill="#b06a3c">
+        <circle cx="43" cy="37" r="4"/>
+        <circle cx="301" cy="185" r="4"/>
+        <circle cx="559" cy="111" r="4"/>
+        <circle cx="215" cy="333" r="4"/>
+        <circle cx="473" cy="407" r="4"/>
+      </g>
+      <rect width="1200" height="620" fill="url(#fade)"/>
+    </svg>
+
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">Materials &amp; Metallurgical Engineering</p>
+        <h1>Pritom<br>Majumder</h1>
+        <!-- EDIT: one-line positioning statement -->
+        <p class="lede">Recent <b>B.Sc. graduate from BUET</b>, preparing for graduate research abroad in materials science.</p>
+
+        <div class="chips">
+          <div class="chip">B.Sc. in MME</div>
+          <div class="chip">CGPA <span>3.64</span> / 4.00</div>
+          <div class="chip">Dhaka, <span>Bangladesh</span></div>
+          <div class="chip">Class of <span>2026</span></div>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#contact">Get in touch</a>
+          <a class="btn btn-ghost" href="cv.pdf">Download CV ↓</a>
+        </div>
+      </div>
+
+      <div class="portrait">
+        <span class="corner"></span>
+        <div class="frame">
+          <img src="pritom.jpg" alt="Pritom Majumder at the BUET Department of Materials and Metallurgical Engineering" />
+        </div>
+        <span class="tag">BUET · MME</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- About body -->
+  <div class="block">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">About</p>
+        <h2>A short introduction</h2>
+      </div>
+      <div class="about-grid">
+        <div>
+          <!-- DRAFT bio built from your documents — edit freely and send me your final version -->
+          <p>I'm a Materials and Metallurgical Engineering graduate from Bangladesh University of Engineering and Technology (BUET), one of the most competitive engineering universities in Bangladesh. I completed my B.Sc. in June 2026 with a CGPA of 3.64 on a 4.00 scale, ranking 15th in a graduating class of 59.</p>
+          <p>My undergraduate thesis focused on lead-free piezoelectric ceramics — synthesizing and characterizing KNN–BCHfT composites as a safer alternative to lead-based PZT. Alongside it, my coursework and lab training built a strong foundation in materials characterization, physical metallurgy, corrosion and surface engineering, and the functional behaviour of electronic ceramics. An industrial attachment at Abul Khair Steel Melting Limited added hands-on exposure to real metallurgical processing.</p>
+          <p class="draft">Now I'm preparing to pursue graduate research abroad. Add a sentence or two here about the specific problems you want to work on and why — send it to me and I'll finalize this section.</p>
+        </div>
+        <aside class="side-card">
+          <h3>At a glance</h3>
+          <dl>
+            <dt>Degree</dt><dd>B.Sc. Engineering</dd>
+            <dt>Field</dt><dd>Materials &amp; Metallurgical</dd>
+            <dt>University</dt><dd>BUET</dd>
+            <dt>Location</dt><dd>Dhaka, BD</dd>
+            <dt>CGPA</dt><dd>3.64 / 4.00</dd>
+            <dt>Graduated</dt><dd>June 2026</dd>
+          </dl>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE: EDUCATION (+ experience) ============ -->
+<section class="block page" id="education">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Education</p>
+      <h2>Academic background</h2>
+    </div>
+    <div class="timeline">
+      <div class="edu">
+        <div class="year">2020 — 2026</div>
+        <h3>B.Sc. in Materials and Metallurgical Engineering</h3>
+        <div class="school">Bangladesh University of Engineering and Technology (BUET), Dhaka</div>
+        <p class="detail">Graduated June 2026 with a CGPA of 3.64 / 4.00. Selected coursework: Phase Diagrams &amp; Transformations, Corrosion &amp; Degradation of Metals and Alloys, Mechanical Behaviour of Materials, Nanostructured Materials &amp; Thin Films, Characterisation of Materials, Surface Engineering &amp; Tribology, and Advanced Ceramics.</p>
+        <p class="detail"><strong>Undergraduate thesis:</strong> “Investigation of Dielectric and Piezoelectric Properties of KNN with BCHfT Composite Ceramics” — developed lead-free piezoelectric ceramics and identified KNN–1&nbsp;wt% BCHfT as the optimum composition. Supervised by Prof. Dr. Ahmed Sharif.</p>
+        <div class="stats">
+          <div class="chip">CGPA 3.64 / 4.00</div>
+          <div class="chip">Merit position 15 / 59</div>
+        </div>
+      </div>
+      <div class="edu">
+        <div class="year">2018 — 2020</div>
+        <h3>Higher Secondary Certificate (HSC), Science</h3>
+        <div class="school">Notre Dame College, Dhaka</div>
+        <p class="detail">GPA 5.00 / 5.00. Science group — Physics, Chemistry, Higher Mathematics, Biology, and ICT.</p>
+        <div class="stats">
+          <div class="chip">GPA 5.00 / 5.00</div>
+          <div class="chip">Dhaka Board</div>
+        </div>
+      </div>
+      <div class="edu">
+        <div class="year">2018</div>
+        <h3>Secondary School Certificate (SSC), Science</h3>
+        <div class="school">Noakhali Zilla School</div>
+        <p class="detail">GPA 5.00 / 5.00 in the Science group.</p>
+        <div class="stats">
+          <div class="chip">GPA 5.00 / 5.00</div>
+          <div class="chip">Comilla Board</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Experience folded into this page -->
+    <p class="subhead">Training &amp; industry experience</p>
+    <div class="timeline">
+      <div class="edu">
+        <div class="year">March 2025</div>
+        <h3>Industrial Training — Materials &amp; Metallurgy</h3>
+        <div class="school">Abul Khair Steel Melting Limited (AKSML), Chittagong</div>
+        <p class="detail">Completed an industrial attachment at one of Bangladesh's largest steel producers, gaining first-hand exposure to steel melting and metallurgical processing. Recognized with a Letter of Appreciation for professionalism and work ethic.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE: RESEARCH INTERESTS ============ -->
+<section class="block page" id="research">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Research focus</p>
+      <h2>Areas I want to pursue</h2>
+      <p>Anchored by my undergraduate thesis on lead-free piezoelectric ceramics. Tell me which directions to emphasize and I'll tailor the list.</p>
+    </div>
+    <!-- EDIT: keep only your real interests; add/remove freely -->
+    <div class="tags">
+      <div class="tag"><span class="dot"></span>Lead-free Piezoelectric &amp; Dielectric Ceramics</div>
+      <div class="tag"><span class="dot"></span>Electronic, Optical &amp; Magnetic Materials</div>
+      <div class="tag"><span class="dot"></span>Advanced &amp; Functional Ceramics</div>
+      <div class="tag"><span class="dot"></span>Transparent Conducting &amp; Semiconducting Oxides</div>
+      <div class="tag"><span class="dot"></span>Thin Films &amp; Nanomaterials</div>
+      <div class="tag"><span class="dot"></span>First-Principles / DFT Modelling</div>
+      <div class="tag"><span class="dot"></span>Materials Characterization</div>
+      <div class="tag"><span class="dot"></span>Corrosion &amp; Surface Engineering</div>
+      <div class="tag"><span class="dot"></span>Physical Metallurgy</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE: PROJECTS / THESIS ============ -->
+<section class="block page" id="projects">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Projects &amp; thesis</p>
+      <h2>Selected work</h2>
+      <p>My undergraduate thesis and my final-year capstone design project — the full reports and slide decks are available to download.</p>
+    </div>
+    <div class="cards">
+      <article class="proj proj-feature">
+        <div class="kicker">Undergraduate Thesis · 2026</div>
+        <h3>Investigation of Dielectric and Piezoelectric Properties of KNN with BCHfT Composite Ceramics</h3>
+        <p>I developed lead-free piezoelectric ceramics as an environmentally friendly alternative to lead-based PZT, synthesizing K<sub>0.5</sub>Na<sub>0.5</sub>NbO<sub>3</sub> (KNN) modified with Ba<sub>0.85</sub>Ca<sub>0.15</sub>Hf<sub>0.1</sub>Ti<sub>0.9</sub>O<sub>3</sub> (BCHfT) by the conventional solid-state route. The composites were characterized by XRD, FE-SEM, and frequency- and temperature-dependent dielectric, impedance, and d<sub>33</sub> measurements. KNN–1&nbsp;wt% BCHfT gave the best balance of dielectric response and low loss, with the highest unpoled piezoelectric coefficient (15.5&nbsp;pC/N) of the compositions studied.</p>
+        <p class="proj-sup">Supervised by Prof. Dr. Ahmed Sharif · Department of MME, BUET</p>
+        <div class="tech"><span>Solid-state synthesis</span><span>XRD</span><span>FE-SEM</span><span>Impedance spectroscopy</span><span>d<sub>33</sub></span><span>OriginPro</span></div>
+        <div class="proj-actions">
+          <a class="btn btn-primary" href="thesis.pdf" target="_blank" rel="noopener">Read thesis (PDF) ↗</a>
+          <a class="btn btn-ghost" href="thesis-slides.pptx">Presentation slides ↓</a>
+        </div>
+      </article>
+
+      <!-- Capstone design project (moved from Coursework) -->
+      <article class="proj proj-feature">
+        <div class="kicker">Capstone Design Project · Team of 6</div>
+        <h3>Millsorp — turning steel mill-scale waste into a heavy-metal water adsorbent</h3>
+        <p>We converted ferrous mill scale, a low-value steel-industry waste, into a chemically treated, hematite-rich iron-oxide adsorbent and built a low-cost bench-scale filtration column to remove Cu, Cr and Ni from wastewater. With the iron-oxide phases confirmed by XRD and metal removal quantified by AAS and UV–Vis, the adsorbent reached up to ~95.8% removal in mixed-metal solutions — closing the loop from industrial waste to clean water and recoverable metal.</p>
+        <p class="proj-sup">Group 02 · Department of MME, BUET</p>
+        <div class="tech"><span>Waste valorization</span><span>XRD</span><span>AAS</span><span>UV–Vis</span><span>Adsorption</span><span>Filtration design</span></div>
+        <div class="proj-actions">
+          <a class="btn btn-primary" href="capstone-millsorp.pdf" target="_blank" rel="noopener">Read report (PDF) ↗</a>
+          <a class="btn btn-ghost" href="capstone-millsorp-slides.pptx">Presentation slides ↓</a>
+        </div>
+      </article>
+      <!-- Add more projects here: give me a title, 2 sentences, and the tools used -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE: COURSEWORK ============ -->
+<section class="block page" id="coursework">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Coursework</p>
+      <h2>Lab &amp; project work</h2>
+      <p>Laboratory experiments, case studies and industry studies from my BUET coursework, grouped by term. Each links to its full report, poster or slide deck — I'm adding to this as I go.</p>
+    </div>
+
+    <p class="subhead">Level 3 · Term 1</p>
+    <div class="cards">
+
+      <!-- MME 314 · Experiment 01 -->
+      <article class="proj">
+        <div class="kicker">MME 314 · Mechanical Behaviour of Materials Lab</div>
+        <h3>Structure–property relationship of an Al–Mg alloy</h3>
+        <p>Ran a tensile test on an aluminium–magnesium alloy, then cut and prepared the same specimen for metallography and a Brinell hardness test. Cross-checked the yield and ultimate strengths from the tensile curve against values converted from Brinell hardness and estimated from strengthening-mechanism models, and analysed why repeated polishing and etching skewed the hardness reading.</p>
+        <div class="tech"><span>Tensile testing</span><span>Brinell hardness</span><span>Metallography</span><span>ImageJ</span><span>Strengthening models</span></div>
+        <div class="proj-actions">
+          <a class="btn btn-primary" href="structure-property-report.pdf" target="_blank" rel="noopener">Read report (PDF) ↗</a>
+        </div>
+      </article>
+
+      <!-- MME 314 · Experiment 02 -->
+      <article class="proj">
+        <div class="kicker">MME 314 · Mechanical Behaviour of Materials Lab</div>
+        <h3>Ductile–brittle transition of mild steel</h3>
+        <p>Carried out Charpy impact testing of mild steel across a range of temperatures and constructed its ductile-to-brittle transition curve, then linked the impact energies back to microstructure — quantifying ferrite and pearlite fractions in ImageJ and relating the transition to the BCC lattice and the steel's normalized structure.</p>
+        <div class="tech"><span>Charpy impact test</span><span>DBT curve</span><span>Optical microscopy</span><span>ImageJ</span><span>OriginPro</span></div>
+        <div class="proj-actions">
+          <a class="btn btn-primary" href="ductile-brittle-transition-report.pdf" target="_blank" rel="noopener">Read report (PDF) ↗</a>
+        </div>
+      </article>
+
+      <!-- MME 314 · Creep case study -->
+      <article class="proj">
+        <div class="kicker">MME 314 · Case Study · Group</div>
+        <h3>Creep failure of a Ni-based superalloy (K403) turbine blade</h3>
+        <p>A group case study on creep failure in Ni-based superalloy (K403) turbine blades, anchored by the LOT Polish Airlines Flight 5055 engine failure. We compared the microstructures of failed and sound blades to trace how grain-boundary cavities nucleate and coalesce, showing the failure followed an intergranular creep path.</p>
+        <div class="tech"><span>Creep</span><span>Ni-based superalloy</span><span>Turbine blades</span><span>Microstructural analysis</span><span>Failure analysis</span></div>
+        <div class="proj-actions">
+          <a class="btn btn-ghost" href="creep-failure-k403-slides.pptx">Presentation slides ↓</a>
+        </div>
+      </article>
+
+      <!-- MME 313 · Catastrophic failures poster -->
+      <article class="proj">
+        <div class="kicker">MME 313 · Crystal Defects, Deformation &amp; Fracture</div>
+        <h3>Catastrophic failures and their explanations</h3>
+        <p>A team poster (Team ENIGMA) dissecting three engineering disasters — the Morbi bridge collapse, the Hindenburg airship fire and the Erika oil-spill tanker — tracing each back to root causes in fatigue, corrosion, aeroelastic flutter and material-selection error, and proposing practical remedies for each.</p>
+        <div class="tech"><span>Failure analysis</span><span>Fatigue</span><span>Corrosion</span><span>Material selection</span><span>Fracture</span></div>
+        <div class="proj-actions">
+          <a class="btn btn-primary" href="catastrophic-failures-poster.pdf" target="_blank" rel="noopener">View poster (PDF) ↗</a>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="subhead">Level 3 · Term 2</p>
+    <div class="cards">
+
+      <!-- MIG welding -->
+      <article class="proj">
+        <div class="kicker">MME 304 · Metal Joining &amp; Forming Lab</div>
+        <h3>Microstructure &amp; hardness analysis of a MIG weld</h3>
+        <p>Characterized a GMAW (MIG) weld on mild steel across its base metal, HAZ and weld zones — ImageJ grain analysis and ASTM grain number, a Rockwell-B hardness profile, and OES composition with carbon-equivalent, identifying the steel as ASTM A572 Grade 50. Includes a SolidWorks model and a full welding procedure specification with mechanical tests.</p>
+        <div class="tech"><span>GMAW / MIG</span><span>Optical microscopy</span><span>Rockwell hardness</span><span>OES</span><span>ImageJ</span><span>SolidWorks</span></div>
+        <div class="proj-actions">
+          <a class="btn btn-primary" href="mig-welding-report.pdf" target="_blank" rel="noopener">Read report (PDF) ↗</a>
+        </div>
+      </article>
+
+      <!-- Polymer composite -->
+      <article class="proj">
+        <div class="kicker">MME 308 · Materials Laboratory I · Group</div>
+        <h3>Polymer-matrix composite for a car-clutch disc</h3>
+        <p>Designed and fabricated a fiber-reinforced (asbestos–epoxy) composite replica of a Hiace car-clutch disc by hand layup and hot compression molding, then evaluated it through tensile, hardness, impact, flexural and FTIR testing — and benchmarked the results against the materials used in real automotive clutches.</p>
+        <div class="tech"><span>Polymer composites</span><span>Hand layup</span><span>Tensile / Flexural</span><span>Shore-D hardness</span><span>FTIR</span></div>
+        <div class="proj-actions">
+          <a class="btn btn-primary" href="polymer-composite-report.pdf" target="_blank" rel="noopener">Read report (PDF) ↗</a>
+        </div>
+      </article>
+
+      <!-- Forging study -->
+      <article class="proj">
+        <div class="kicker">Industry Study · Hitec Steel</div>
+        <h3>Hot vs. cold forging of steel</h3>
+        <p>A shop-floor study of hot and cold forging at Hitec Steel, comparing forging temperatures, spring-back and residual-stress state, and how each route changes the hardness of the forged samples.</p>
+        <div class="tech"><span>Hot / cold forging</span><span>Spring-back</span><span>Residual stress</span><span>Hardness</span></div>
+        <div class="proj-actions">
+          <a class="btn btn-ghost" href="forging-study-slides.pptx">Presentation slides ↓</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE: PUBLICATIONS ============ -->
+<section class="block page" id="publications">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Publications</p>
+      <h2>Manuscripts under review</h2>
+      <p>Two research manuscripts I've submitted to peer-reviewed journals. Author lists, journal names, and dates are placeholders — send me the details and I'll fill them in.</p>
+    </div>
+    <div class="pubs">
+
+      <!-- Paper 1: research -->
+      <article class="pubcard">
+        <div class="top">
+          <span class="pill"><span class="pulse"></span>Under review</span>
+          <span class="pill type">Research article</span>
+        </div>
+        <h3>Structural, Optical, Magnetic, and Electronic Properties of Hydrothermally Grown Cu-Doped SnO₂ Thin Films: A Combined Experimental and First-Principles (DFT+U) Study</h3>
+        <div class="authors"><b>P. Majumder</b>, <span class="fill">co-authors</span></div>
+        <p>Undoped and Cu-doped SnO₂ thin films were grown by a low-temperature hydrothermal route and studied by XRD, TEM/HRTEM, SAED, UV–Vis and photoluminescence, alongside first-principles DFT+U calculations. The work analyses why the Cu-doped films stay n-type despite Cu's acceptor-like states, and what this means for realizing all-SnO₂ p–n homojunctions.</p>
+        <div class="tech"><span>Hydrothermal synthesis</span><span>XRD</span><span>HRTEM / SAED</span><span>UV–Vis</span><span>Photoluminescence</span><span>DFT+U (VASP)</span></div>
+        <div class="venue"><span class="fill">Journal name</span> · Submitted <span class="fill">2026</span> · Under peer review</div>
+      </article>
+
+      <!-- Paper 2: review -->
+      <article class="pubcard">
+        <div class="top">
+          <span class="pill"><span class="pulse"></span>Under review</span>
+          <span class="pill type">Review article</span>
+        </div>
+        <h3>Advancements in Cold Sintering of Piezoceramics: Flux Mediation, Microstructural Evolution, and Enhanced Dielectric Properties — A Review</h3>
+        <div class="authors"><b>P. Majumder</b>, <span class="fill">co-authors</span></div>
+        <p>A review of flux-assisted cold sintering as a low-temperature route for piezoceramics — how transient liquid and flux chemistry govern densification, microstructural evolution, and the resulting dielectric and piezoelectric response across BaTiO₃, PZT, KNN, ZnO and related systems, together with the challenges that remain for reliable manufacturing.</p>
+        <div class="tech"><span>Cold sintering</span><span>Piezoceramics</span><span>Flux chemistry</span><span>Dielectric properties</span><span>Microstructure</span></div>
+        <div class="venue"><span class="fill">Journal name</span> · Submitted <span class="fill">2026</span> · Under peer review</div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE: SKILLS ============ -->
+<section class="block page" id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Skills</p>
+      <h2>Technical toolkit</h2>
+      <p>Built from my thesis work and BUET laboratory training.</p>
+    </div>
+    <!-- EDIT: replace with your real skills -->
+    <div class="skills">
+      <div class="skillcol">
+        <h3>Characterization &amp; Testing</h3>
+        <ul>
+          <li>X-Ray Diffraction (XRD)</li>
+          <li>FE-SEM microscopy</li>
+          <li>Dielectric &amp; impedance spectroscopy</li>
+          <li>Piezoelectric (d<sub>33</sub>) testing</li>
+          <li>Metallography &amp; hardness testing</li>
+        </ul>
+      </div>
+      <div class="skillcol">
+        <h3>Processing &amp; Software</h3>
+        <ul>
+          <li>Solid-state ceramic synthesis</li>
+          <li>Sintering, pressing &amp; poling</li>
+          <li>OriginPro (data analysis)</li>
+          <li>DFT / VASP (first-principles)</li>
+          <li>C programming · CAD</li>
+        </ul>
+      </div>
+      <div class="skillcol">
+        <h3>Core Competencies</h3>
+        <ul>
+          <li>Research &amp; experimental design</li>
+          <li>Technical writing &amp; reporting</li>
+          <li>Literature review</li>
+          <li>Data interpretation</li>
+          <li>Presentation &amp; teamwork</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE: CONTACT ============ -->
+<section class="block page contact" id="contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Contact</p>
+      <h2>Let's connect</h2>
+      <p>Open to graduate research positions and collaboration. The best way to reach me is by email.</p>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <p class="note">Interested in my work, or looking for a motivated graduate researcher? I'd be glad to hear from you.</p>
+        <div class="avail"><span class="pulse"></span>Seeking Fall <span class="fill" style="color:#e0a97f;border-color:#b06a3c">20XX</span> graduate admission</div>
+      </div>
+      <div class="clinks">
+        <a class="clink" href="mailto:pritommajumder36@gmail.com"><span class="l">Email</span><span class="v">pritommajumder36@gmail.com</span></a>
+        <a class="clink" href="https://www.linkedin.com/in/pritom-majumder-602581227/" target="_blank" rel="noopener"><span class="l">LinkedIn</span><span class="v">in/pritom-majumder-602581227 ↗</span></a>
+        <a class="clink" href="https://wa.me/8801859472796" target="_blank" rel="noopener"><span class="l">WhatsApp / Telegram</span><span class="v">+880 1859 472796 ↗</span></a>
+        <a class="clink" href="thesis.pdf" target="_blank" rel="noopener"><span class="l">Thesis</span><span class="v">Read PDF ↗</span></a>
+        <a class="clink" href="cv.pdf"><span class="l">CV</span><span class="v">Download PDF ↓</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© <span id="yr"></span> Pritom Majumder</p>
+    <p>Materials &amp; Metallurgical Engineering · BUET</p>
+  </div>
+</footer>
+
+<script>
+  // year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // ---------- PAGE ROUTER ----------
+  const pages    = Array.from(document.querySelectorAll('.page'));
+  const navLinks = Array.from(document.querySelectorAll('nav.links a[data-nav]'));
+  const valid    = new Set(pages.map(p => p.id));
+  const toggle   = document.querySelector('.menu-toggle');
+  const menu     = document.getElementById('menu');
+
+  function showPage(id){
+    if(!valid.has(id)) id = 'about';
+
+    pages.forEach(p => {
+      const on = p.id === id;
+      p.classList.toggle('active', on);
+      // restart entrance animation
+      if(on){ p.classList.remove('active'); void p.offsetWidth; p.classList.add('active'); }
+    });
+
+    navLinks.forEach(a => {
+      const on = a.getAttribute('href') === '#' + id;
+      a.classList.toggle('active', on);
+      if(on) a.setAttribute('aria-current', 'page');
+      else   a.removeAttribute('aria-current');
+    });
+
+    // start each page at the top, under the nav
+    window.scrollTo({ top: 0, behavior: 'auto' });
+
+    // move focus to the page heading for screen readers
+    const active = document.getElementById(id);
+    const heading = active.querySelector('h1, h2');
+    if(heading){ heading.setAttribute('tabindex', '-1'); heading.focus({ preventScroll: true }); }
+
+    // reflect current page in the tab title
+    const label = navLinks.find(a => a.getAttribute('href') === '#' + id);
+    document.title = 'Pritom Majumder — ' + (label ? label.textContent.trim() : 'Portfolio');
+
+    // close the mobile menu after navigating
+    menu.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  // hash drives navigation (gives shareable URLs + working back/forward)
+  window.addEventListener('hashchange', () => showPage(location.hash.slice(1)));
+  showPage(location.hash.slice(1));
+
+  // mobile menu toggle
+  toggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+</script>
+</body>
+</html>
