@@ -269,6 +269,26 @@
   .proj-sup{font-family:var(--mono);font-size:.78rem;color:var(--muted);margin:0 0 16px}
   .proj-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
 
+  /* CAD / design showcase — render framed beside the write-up */
+  .proj-showcase{grid-column:1/-1;display:grid;grid-template-columns:.92fr 1.08fr;gap:36px;align-items:center}
+  .proj-showcase .shot{position:relative}
+  .proj-showcase .shot .frame{
+    border:1px solid var(--line);background:var(--card);
+    border-radius:var(--radius);padding:8px;
+    box-shadow:0 16px 44px -26px rgba(19,29,39,.5);
+  }
+  .proj-showcase .shot img{border-radius:8px;width:100%;object-fit:cover}
+  .proj-showcase .shot .corner{position:absolute;top:-7px;right:-7px;width:26px;height:26px;
+    border-top:2px solid var(--copper);border-right:2px solid var(--copper);border-radius:0 6px 0 0}
+  .proj-showcase .shot .cap{
+    position:absolute;left:-8px;bottom:18px;background:var(--ink);color:var(--paper);
+    font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;padding:6px 11px;border-radius:7px;
+  }
+  .proj-showcase .body h3{font-size:1.5rem;line-height:1.25;max-width:32ch}
+  .proj-showcase .thumbs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+  .proj-showcase .thumbs .frame{padding:5px;border-radius:10px;box-shadow:0 8px 22px -18px rgba(19,29,39,.5)}
+  .proj-showcase .thumbs img{border-radius:6px}
+
   /* ---------- COURSEWORK TERM SELECTOR ---------- */
   .term-nav{
     display:flex;flex-wrap:wrap;gap:10px;
@@ -376,6 +396,7 @@
     .portrait{max-width:360px}
     .about-grid{grid-template-columns:1fr;gap:28px}
     .cards{grid-template-columns:1fr}
+    .proj-showcase{grid-template-columns:1fr;gap:26px}
     .skills{grid-template-columns:1fr;gap:30px}
     .contact-grid{grid-template-columns:1fr;gap:28px}
     nav.links{
@@ -641,6 +662,35 @@
           <a class="btn btn-ghost" href="capstone-millsorp-slides.pptx">Presentation slides ↓</a>
         </div>
       </article>
+      <!-- CAD & simulation showcase (2nd-year design project) -->
+      <article class="proj proj-showcase">
+        <div class="shot">
+          <span class="corner"></span>
+          <div class="frame">
+            <img src="potterbot.jpg" alt="SolidWorks render of the 3D PotterBot clay printer extruding a twisted ceramic vase" loading="lazy" />
+          </div>
+          <span class="cap">SolidWorks · 2023</span>
+          <div class="thumbs">
+            <div class="frame">
+              <img src="potterbot-front.jpg" alt="Front-view render of the 3D PotterBot printing a ceramic vase" loading="lazy" />
+            </div>
+            <div class="frame">
+              <img src="potterbot-side.jpg" alt="Side-view render of the 3D PotterBot with the extruder over the print bed" loading="lazy" />
+            </div>
+          </div>
+        </div>
+        <div class="body">
+          <div class="kicker">CAD &amp; Simulation · Individual · 2023</div>
+          <h3>3D PotterBot — a clay 3D printer, modelled &amp; simulated in SolidWorks</h3>
+          <p>I designed a complete 3D PotterBot — a paste-extrusion printer that builds pottery from ceramic clay — as a fully-mated SolidWorks assembly of 118 individual parts, from the extruder and lead-screw drive down to every frame extrusion and fastener. Alongside the model I produced photorealistic renders, an exploded-view motion study of the mechanism, and a static structural (FEA) study of the vertical aluminium support rod — mapping its displacement (≈&nbsp;15&nbsp;mm peak deflection), strain and von Mises stress fields under load.</p>
+          <div class="tech"><span>SolidWorks</span><span>Assembly modelling (118 parts)</span><span>Static FEA</span><span>Motion study</span><span>Rendering</span></div>
+          <div class="proj-actions">
+            <a class="btn btn-primary" href="potterbot-motion-study.mp4" target="_blank" rel="noopener">Motion study (video) ↗</a>
+            <a class="btn btn-ghost" href="3d-potterbot.sldasm">SolidWorks model ↓</a>
+          </div>
+        </div>
+      </article>
+
       <!-- Add more projects here: give me a title, 2 sentences, and the tools used -->
     </div>
   </div>
@@ -668,6 +718,9 @@
       </button>
       <button class="term-btn" id="tab-l3t1" role="tab" aria-selected="false" aria-controls="term-l3t1" data-term="l3t1">
         <span class="lv">Level 3 · Term 1</span><span class="count">4</span>
+      </button>
+      <button class="term-btn" id="tab-l2t1" role="tab" aria-selected="false" aria-controls="term-l2t1" data-term="l2t1">
+        <span class="lv">Level 2 · Term 1</span><span class="count">1</span>
       </button>
     </div>
 
@@ -884,6 +937,25 @@
         <div class="tech"><span>Failure analysis</span><span>Fatigue</span><span>Corrosion</span><span>Material selection</span><span>Fracture</span></div>
         <div class="proj-actions">
           <a class="btn btn-primary" href="catastrophic-failures-poster.pdf" target="_blank" rel="noopener">View poster (PDF) ↗</a>
+        </div>
+      </article>
+
+    </div>
+    </div>
+
+    <!-- ===== Level 2 · Term 1 ===== -->
+    <div class="term-panel" id="term-l2t1" role="tabpanel" aria-labelledby="tab-l2t1" tabindex="0">
+    <p class="term-caption">Level 2 · Term 1</p>
+    <div class="cards">
+
+      <!-- Engineering Graphics & Introduction to CAD -->
+      <article class="proj">
+        <div class="kicker">Engineering Graphics &amp; Introduction to CAD · Individual</div>
+        <h3>3D PotterBot — full SolidWorks assembly &amp; FEA</h3>
+        <p>My introduction to computer-aided design: a complete 3D PotterBot clay printer built as a SolidWorks assembly of 118 parts, fully mated across the whole mechanism. Beyond the modelling I produced photorealistic renders, an exploded-view motion study, and a static structural (FEA) analysis of the vertical aluminium support rod — displacement, strain and von Mises stress.</p>
+        <div class="tech"><span>SolidWorks</span><span>Assembly modelling</span><span>FEA / simulation</span><span>Motion study</span><span>Rendering</span></div>
+        <div class="proj-actions">
+          <a class="btn btn-primary" href="potterbot-motion-study.mp4" target="_blank" rel="noopener">Motion study (video) ↗</a>
         </div>
       </article>
 
