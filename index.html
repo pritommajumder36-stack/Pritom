@@ -289,6 +289,39 @@
   .proj-showcase .thumbs .frame{padding:5px;border-radius:10px;box-shadow:0 8px 22px -18px rgba(19,29,39,.5)}
   .proj-showcase .thumbs img{border-radius:6px}
 
+  /* ---------- HOBBIES & CO-CURRICULAR ---------- */
+  .act-group{margin-bottom:44px}
+  .act-group:last-child{margin-bottom:0}
+  .act-group > .eyebrow{margin-bottom:20px}
+
+  /* category card — reuses the .proj look, but the whole card is one link */
+  a.activity-card{display:flex;flex-direction:column;text-decoration:none}
+  a.activity-card:hover{color:inherit}
+  a.activity-card h3{transition:color .18s}
+  a.activity-card:hover h3{color:var(--copper-deep)}
+  a.activity-card .act-go{
+    margin-top:auto;padding-top:14px;
+    font-family:var(--mono);font-size:.78rem;letter-spacing:.05em;
+    color:var(--copper-deep);display:inline-flex;align-items:center;gap:8px;
+  }
+  a.activity-card .act-go span{transition:transform .18s}
+  a.activity-card:hover .act-go span{transform:translateX(4px)}
+  a.activity-card:focus-visible{outline:2px solid var(--copper);outline-offset:3px}
+
+  /* back link on a detail page */
+  .back-link{
+    display:inline-flex;align-items:center;gap:7px;
+    font-family:var(--mono);font-size:.8rem;letter-spacing:.04em;
+    color:var(--steel);margin-bottom:26px;
+  }
+  .back-link:hover{color:var(--copper-deep)}
+  .back-link span{transition:transform .18s}
+  .back-link:hover span{transform:translateX(-3px)}
+
+  /* empty-state card, shown until you send me the materials */
+  .act-placeholder{border-style:dashed}
+  .act-placeholder p{margin:0}
+
   /* ---------- COURSEWORK TERM SELECTOR ---------- */
   .term-nav{
     display:flex;flex-wrap:wrap;gap:10px;
@@ -439,6 +472,7 @@
       <a data-nav href="#coursework">Coursework</a>
       <a data-nav href="#publications">Publications</a>
       <a data-nav href="#skills">Skills</a>
+      <a data-nav href="#activities">Activities</a>
       <a data-nav href="#contact">Contact</a>
       <a class="cv-btn" href="cv.pdf">Download CV ↓</a>
     </nav>
@@ -1056,6 +1090,159 @@
   </div>
 </section>
 
+<!-- ============ PAGE: ACTIVITIES (landing) ============ -->
+<section class="block page" id="activities">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Beyond the lab</p>
+      <h2>Hobbies &amp; co-curricular</h2>
+      <p>A little of what I do outside research. Pick a card to see more.</p>
+    </div>
+
+    <!-- ---- Hobbies ---- -->
+    <div class="act-group">
+      <p class="eyebrow">Hobbies</p>
+      <div class="cards">
+        <a class="proj activity-card" href="#act-tour">
+          <div class="kicker">Hobby</div>
+          <h3>Tour</h3>
+          <p>Places I've travelled and the trips worth remembering.</p>
+          <span class="act-go">Explore <span>&rarr;</span></span>
+        </a>
+        <a class="proj activity-card" href="#act-gym">
+          <div class="kicker">Hobby</div>
+          <h3>Gym</h3>
+          <p>Training, consistency, and staying in shape.</p>
+          <span class="act-go">Explore <span>&rarr;</span></span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ---- Co-curricular ---- -->
+    <div class="act-group">
+      <p class="eyebrow">Co-curricular</p>
+      <div class="cards">
+        <a class="proj activity-card" href="#act-clubs">
+          <div class="kicker">Co-curricular</div>
+          <h3>Clubs</h3>
+          <p>Student clubs and societies I've been part of.</p>
+          <span class="act-go">Explore <span>&rarr;</span></span>
+        </a>
+        <a class="proj activity-card" href="#act-others">
+          <div class="kicker">Co-curricular</div>
+          <h3>Others</h3>
+          <p>Volunteering, events, and everything else.</p>
+          <span class="act-go">Explore <span>&rarr;</span></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE: TOUR (detail) ============ -->
+<section class="block page" id="act-tour" data-parent="activities">
+  <div class="wrap">
+    <a class="back-link" href="#activities"><span>&larr;</span> Activities</a>
+    <div class="sec-head">
+      <p class="eyebrow">Hobby</p>
+      <h2>Tour</h2>
+      <p class="draft">Short intro about your travels — send me a line or two and I'll drop it in here.</p>
+    </div>
+
+    <div class="cards">
+      <!--
+        Each trip is one card. Send me, per trip:
+          • a title (place + year)      • 1–2 sentences
+          • optional photo(s)           • optional link
+        and I'll build it in this shape:
+
+        <article class="proj">
+          <div class="kicker">Place · Year</div>
+          <h3>Trip title</h3>
+          <p>What the trip was and why it stuck with you.</p>
+        </article>
+      -->
+      <article class="proj proj-feature act-placeholder">
+        <p class="fill">Materials coming soon — send me photos, captions, dates and places, and any links, and I'll fill this out.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE: GYM (detail) ============ -->
+<section class="block page" id="act-gym" data-parent="activities">
+  <div class="wrap">
+    <a class="back-link" href="#activities"><span>&larr;</span> Activities</a>
+    <div class="sec-head">
+      <p class="eyebrow">Hobby</p>
+      <h2>Gym</h2>
+      <p class="draft">Short intro about your training — send me a line or two and I'll drop it in here.</p>
+    </div>
+
+    <div class="cards">
+      <!--
+        Drop in whatever you want to show here — a routine, milestones,
+        a few photos. One .proj card per item, same shape as above.
+      -->
+      <article class="proj proj-feature act-placeholder">
+        <p class="fill">Materials coming soon — send me photos, a short write-up, or anything you'd like shown here.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE: CLUBS (detail) ============ -->
+<section class="block page" id="act-clubs" data-parent="activities">
+  <div class="wrap">
+    <a class="back-link" href="#activities"><span>&larr;</span> Activities</a>
+    <div class="sec-head">
+      <p class="eyebrow">Co-curricular</p>
+      <h2>Clubs</h2>
+      <p class="draft">Short intro about the clubs you joined — send me a line or two and I'll drop it in here.</p>
+    </div>
+
+    <div class="cards">
+      <!--
+        One card per club. Send me, per club:
+          • club name                   • your role + years
+          • 1–2 sentences on what you did
+        Shape:
+
+        <article class="proj">
+          <div class="kicker">Role · 2022–2024</div>
+          <h3>Club name</h3>
+          <p>What the club is and what you did there.</p>
+        </article>
+      -->
+      <article class="proj proj-feature act-placeholder">
+        <p class="fill">Materials coming soon — send me each club's name, your role, the years, and a sentence or two.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE: OTHERS (detail) ============ -->
+<section class="block page" id="act-others" data-parent="activities">
+  <div class="wrap">
+    <a class="back-link" href="#activities"><span>&larr;</span> Activities</a>
+    <div class="sec-head">
+      <p class="eyebrow">Co-curricular</p>
+      <h2>Others</h2>
+      <p class="draft">Volunteering, events, competitions, anything else — send me the details and I'll drop them in here.</p>
+    </div>
+
+    <div class="cards">
+      <!--
+        Catch-all for anything that isn't a club — volunteering, events,
+        competitions, workshops. One .proj card per item.
+      -->
+      <article class="proj proj-feature act-placeholder">
+        <p class="fill">Materials coming soon — send me the details for anything you'd like listed here.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- ============ PAGE: CONTACT ============ -->
 <section class="block page contact" id="contact">
   <div class="wrap">
@@ -1103,6 +1290,10 @@
   function showPage(id){
     if(!valid.has(id)) id = 'about';
 
+    const active = document.getElementById(id);
+    // sub-pages (e.g. an activity detail) can point back at a nav item
+    const parent = active && active.dataset.parent;
+
     pages.forEach(p => {
       const on = p.id === id;
       p.classList.toggle('active', on);
@@ -1111,23 +1302,26 @@
     });
 
     navLinks.forEach(a => {
-      const on = a.getAttribute('href') === '#' + id;
-      a.classList.toggle('active', on);
-      if(on) a.setAttribute('aria-current', 'page');
-      else   a.removeAttribute('aria-current');
+      const href     = a.getAttribute('href');
+      const isPage   = href === '#' + id;
+      const isParent = parent && href === '#' + parent;
+      a.classList.toggle('active', isPage || isParent);
+      if(isPage) a.setAttribute('aria-current', 'page');
+      else       a.removeAttribute('aria-current');
     });
 
     // start each page at the top, under the nav
     window.scrollTo({ top: 0, behavior: 'auto' });
 
     // move focus to the page heading for screen readers
-    const active = document.getElementById(id);
     const heading = active.querySelector('h1, h2');
     if(heading){ heading.setAttribute('tabindex', '-1'); heading.focus({ preventScroll: true }); }
 
-    // reflect current page in the tab title
+    // reflect current page in the tab title (fall back to the page's own heading)
     const label = navLinks.find(a => a.getAttribute('href') === '#' + id);
-    document.title = 'Pritom Majumder — ' + (label ? label.textContent.trim() : 'Portfolio');
+    const titleText = label ? label.textContent.trim()
+                            : (heading ? heading.textContent.trim() : 'Portfolio');
+    document.title = 'Pritom Majumder — ' + titleText;
 
     // close the mobile menu after navigating
     menu.classList.remove('open');
