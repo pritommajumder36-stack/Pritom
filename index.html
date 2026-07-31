@@ -6,10 +6,7 @@
 <title>Pritom Majumder — Materials &amp; Metallurgical Engineer</title>
 <meta name="description" content="Pritom Majumder — Materials and Metallurgical Engineering graduate from BUET, preparing for graduate research abroad." />
 
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;450;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Fonts: Times New Roman is a system font, no webfont request needed -->
 
 <style>
   :root{
@@ -26,9 +23,9 @@
     --line-soft:#e0e5e7;
     --radius:14px;
     --maxw:1120px;
-    --serif:"Newsreader",Georgia,serif;
-    --sans:"Inter",system-ui,-apple-system,sans-serif;
-    --mono:"IBM Plex Mono",ui-monospace,monospace;
+    --serif:"Times New Roman",Times,serif;
+    --sans:"Times New Roman",Times,serif;
+    --mono:"Times New Roman",Times,serif;
   }
 
   *{box-sizing:border-box}
@@ -54,8 +51,8 @@
   /* ---- eyebrow / mono labels ---- */
   .eyebrow{
     font-family:var(--mono);
-    font-size:.72rem;
-    letter-spacing:.2em;
+    font-size:.79rem;
+    letter-spacing:.12em;
     text-transform:uppercase;
     color:var(--steel);
     display:inline-flex;
@@ -95,12 +92,12 @@
     display:flex;flex-direction:column;justify-content:center;align-items:center;
     line-height:1;position:relative;background:var(--card);
   }
-  .tile .num{position:absolute;top:3px;left:5px;font-family:var(--mono);font-size:.42rem;color:var(--muted)}
+  .tile .num{position:absolute;top:3px;left:5px;font-family:var(--mono);font-size:.46rem;color:var(--muted)}
   .tile .sym{font-family:var(--serif);font-size:1.15rem;color:var(--ink);font-weight:500}
-  .brand .name{font-family:var(--serif);font-size:1.05rem;color:var(--ink)}
-  .brand .role{display:block;font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .brand .name{font-size:1.16rem;color:var(--ink);line-height:1.2}
+  .brand .role{display:block;font-size:.82rem;letter-spacing:.01em;text-transform:none;color:var(--slate);line-height:1.25}
   nav.links{display:flex;gap:18px;align-items:center}
-  nav.links a{color:var(--slate);font-size:.9rem;font-weight:450;cursor:pointer}
+  nav.links a{color:var(--slate);font-size:.95rem;font-weight:450;cursor:pointer}
   nav.links a:hover{color:var(--ink)}
   /* active page indicator */
   nav.links a[data-nav]{position:relative}
@@ -139,7 +136,7 @@
 
   .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:30px}
   .chip{
-    font-family:var(--mono);font-size:.72rem;letter-spacing:.03em;
+    font-family:var(--mono);font-size:.79rem;letter-spacing:.03em;
     color:var(--slate);background:var(--card);
     border:1px solid var(--line);border-radius:20px;padding:5px 13px;
   }
@@ -168,7 +165,7 @@
   .portrait .tag{
     position:absolute;left:-10px;bottom:22px;
     background:var(--ink);color:var(--paper);
-    font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;
+    font-family:var(--mono);font-size:.75rem;letter-spacing:.055em;
     padding:7px 12px;border-radius:7px;
   }
   .portrait .corner{position:absolute;top:-7px;right:-7px;width:26px;height:26px;
@@ -189,7 +186,7 @@
     background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
     padding:24px;
   }
-  .side-card h3{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--steel);margin-bottom:16px}
+  .side-card h3{font-family:var(--mono);font-size:.79rem;letter-spacing:.1em;text-transform:uppercase;color:var(--steel);margin-bottom:16px}
   .side-card dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 16px}
   .side-card dt{font-family:var(--mono);font-size:.78rem;color:var(--muted)}
   .side-card dd{margin:0;color:var(--ink);font-size:.92rem;text-align:right}
@@ -234,12 +231,12 @@
   /* quiet "available on request" annotation */
   .avail-note{
     display:inline-flex;align-items:center;gap:.55em;
-    font-family:var(--mono);font-size:.72rem;letter-spacing:.03em;
+    font-family:var(--mono);font-size:.79rem;letter-spacing:.03em;
     color:var(--muted);margin:14px 0 0;
   }
   .avail-note::before{content:"";width:16px;height:2px;background:var(--copper);display:inline-block}
 
-  .subhead{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--steel);margin:44px 0 20px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+  .subhead{font-family:var(--mono);font-size:.79rem;letter-spacing:.1em;text-transform:uppercase;color:var(--steel);margin:44px 0 20px;padding-bottom:10px;border-bottom:1px solid var(--line)}
 
   /* research tags */
   .tags{display:flex;flex-wrap:wrap;gap:12px}
@@ -259,11 +256,11 @@
     padding:26px;transition:border-color .18s,transform .15s,box-shadow .18s;
   }
   .proj:hover{border-color:var(--copper);transform:translateY(-3px);box-shadow:0 16px 40px -28px rgba(19,29,39,.55)}
-  .proj .kicker{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--copper-deep)}
+  .proj .kicker{font-family:var(--mono);font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--copper-deep)}
   .proj h3{font-size:1.28rem;margin:12px 0 10px}
   .proj p{margin:0 0 16px;font-size:.98rem;color:var(--slate)}
   .proj .tech{display:flex;flex-wrap:wrap;gap:7px}
-  .proj .tech span{font-family:var(--mono);font-size:.72rem;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:3px 9px}
+  .proj .tech span{font-family:var(--mono);font-size:.79rem;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:3px 9px}
   .proj-feature{grid-column:1/-1}
   .proj-feature h3{font-size:1.5rem;line-height:1.25;max-width:34ch}
   .proj-sup{font-family:var(--mono);font-size:.78rem;color:var(--muted);margin:0 0 16px}
@@ -282,7 +279,7 @@
     border-top:2px solid var(--copper);border-right:2px solid var(--copper);border-radius:0 6px 0 0}
   .proj-showcase .shot .cap{
     position:absolute;left:-8px;bottom:18px;background:var(--ink);color:var(--paper);
-    font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;padding:6px 11px;border-radius:7px;
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.055em;padding:6px 11px;border-radius:7px;
   }
   .proj-showcase .body h3{font-size:1.5rem;line-height:1.25;max-width:32ch}
   .proj-showcase .thumbs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
@@ -339,7 +336,7 @@
   .term-btn:hover{border-color:var(--copper);color:var(--ink);transform:translateY(-2px)}
   .term-btn:active{transform:translateY(0)}
   .term-btn .count{
-    font-family:var(--mono);font-size:.66rem;
+    font-family:var(--mono);font-size:.73rem;
     background:rgba(70,102,132,.12);color:var(--steel);
     border-radius:20px;padding:2px 8px;line-height:1.5;
   }
@@ -353,7 +350,7 @@
   .term-panel.active{display:block;animation:pageIn .4s cubic-bezier(.2,.65,.2,1) both}
   @media (prefers-reduced-motion:reduce){.term-panel.active{animation:none}}
   .term-caption{
-    font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+    font-family:var(--mono);font-size:.79rem;letter-spacing:.09em;text-transform:uppercase;
     color:var(--steel);margin:0 0 20px;
   }
 
@@ -366,7 +363,7 @@
   .pubcard:hover{border-color:var(--copper);transform:translateY(-3px);box-shadow:0 16px 40px -28px rgba(19,29,39,.55)}
   .pubcard .top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
   .pill{
-    font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;
+    font-family:var(--mono);font-size:.70rem;letter-spacing:.09em;text-transform:uppercase;
     padding:4px 11px;border-radius:20px;
     border:1px solid var(--copper);color:var(--copper-deep);background:rgba(176,106,60,.07);
     display:inline-flex;align-items:center;gap:7px;
@@ -379,12 +376,12 @@
   .pubcard .authors b{color:var(--ink)}
   .pubcard p{margin:0 0 4px;font-size:.99rem;color:var(--slate)}
   .pubcard .tech{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
-  .pubcard .tech span{font-family:var(--mono);font-size:.72rem;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:3px 9px}
+  .pubcard .tech span{font-family:var(--mono);font-size:.79rem;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:3px 9px}
   .pubcard .venue{font-family:var(--mono);font-size:.76rem;color:var(--muted);margin-top:14px}
 
   /* skills */
   .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .skillcol h3{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+  .skillcol h3{font-family:var(--mono);font-size:.81rem;letter-spacing:.09em;text-transform:uppercase;color:var(--steel);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--line)}
   .skillcol ul{list-style:none;margin:0;padding:0}
   .skillcol li{padding:7px 0;color:var(--ink);font-size:.95rem;display:flex;align-items:baseline;gap:10px}
   .skillcol li::before{content:"—";color:var(--copper);font-family:var(--mono)}
@@ -403,7 +400,7 @@
     color:#e7edf1;transition:padding .18s;
   }
   .clink:hover{padding-left:12px;color:#fff}
-  .clink .l{font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:#8ea3b3}
+  .clink .l{font-family:var(--mono);font-size:.81rem;letter-spacing:.08em;text-transform:uppercase;color:#8ea3b3}
   .clink .v{font-size:1rem}
   .clink .v .fill{color:#e0a97f;border-color:#b06a3c}
   .contact .note{font-size:1.15rem;font-family:var(--serif);color:#fff;line-height:1.5}
@@ -474,7 +471,7 @@
       <a data-nav href="#skills">Skills</a>
       <a data-nav href="#activities">Activities</a>
       <a data-nav href="#contact">Contact</a>
-      <a class="cv-btn" href="cv.pdf">Download CV ↓</a>
+      <a class="cv-btn" href="cv.pdf" download="Pritom_Majumder_CV.pdf">Download CV ↓</a>
     </nav>
   </div>
 </header>
@@ -537,7 +534,7 @@
 
         <div class="cta-row">
           <a class="btn btn-primary" href="#contact">Get in touch</a>
-          <a class="btn btn-ghost" href="cv.pdf">Download CV ↓</a>
+          <a class="btn btn-ghost" href="cv.pdf" download="Pritom_Majumder_CV.pdf">Download CV ↓</a>
         </div>
       </div>
 
@@ -1261,7 +1258,7 @@
         <a class="clink" href="https://www.linkedin.com/in/pritom-majumder-602581227/" target="_blank" rel="noopener"><span class="l">LinkedIn</span><span class="v">in/pritom-majumder-602581227 ↗</span></a>
         <a class="clink" href="https://wa.me/8801859472796" target="_blank" rel="noopener"><span class="l">WhatsApp / Telegram</span><span class="v">+880 1859 472796 ↗</span></a>
         <a class="clink" href="thesis.pdf" target="_blank" rel="noopener"><span class="l">Thesis</span><span class="v">Read PDF ↗</span></a>
-        <a class="clink" href="cv.pdf"><span class="l">CV</span><span class="v">Download PDF ↓</span></a>
+        <a class="clink" href="cv.pdf" download="Pritom_Majumder_CV.pdf"><span class="l">CV</span><span class="v">Download PDF ↓</span></a>
       </div>
     </div>
   </div>
@@ -1305,7 +1302,7 @@
       const href     = a.getAttribute('href');
       const isPage   = href === '#' + id;
       const isParent = parent && href === '#' + parent;
-      a.classList.toggle('active', isPage || isParent);
+      a.classList.toggle('active', Boolean(isPage || isParent));
       if(isPage) a.setAttribute('aria-current', 'page');
       else       a.removeAttribute('aria-current');
     });
