@@ -286,6 +286,75 @@
   .proj-showcase .thumbs .frame{padding:5px;border-radius:10px;box-shadow:0 8px 22px -18px rgba(19,29,39,.5)}
   .proj-showcase .thumbs img{border-radius:6px}
 
+
+  /* ---------- SITE VISITS: photo gallery ---------- */
+  .site-gallery{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px;
+  }
+  .site-gallery figure{margin:0}
+  .site-gallery button.shotbtn{
+    display:block;width:100%;padding:6px;cursor:zoom-in;text-align:left;
+    border:1px solid var(--line);background:var(--card);border-radius:var(--radius);
+    transition:border-color .18s,transform .15s,box-shadow .18s;
+  }
+  .site-gallery button.shotbtn:hover,
+  .site-gallery button.shotbtn:focus-visible{
+    border-color:var(--copper);transform:translateY(-2px);
+    box-shadow:0 14px 34px -22px rgba(19,29,39,.55);
+  }
+  .site-gallery img{
+    width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:8px;display:block;
+  }
+  .site-gallery figcaption{
+    margin-top:9px;font-size:.84rem;color:var(--muted);line-height:1.45;
+  }
+  .site-gallery figcaption b{color:var(--slate);font-weight:500}
+
+  /* lightbox */
+  .lbox{
+    position:fixed;inset:0;z-index:200;display:none;
+    background:rgba(12,18,24,.92);
+    align-items:center;justify-content:center;padding:32px;
+  }
+  .lbox.open{display:flex}
+  .lbox figure{margin:0;max-width:min(1080px,92vw);text-align:center}
+  .lbox img{
+    max-width:100%;max-height:78vh;border-radius:10px;object-fit:contain;
+    box-shadow:0 30px 70px -30px rgba(0,0,0,.8);
+  }
+  .lbox figcaption{
+    margin-top:16px;color:#dfe6ea;font-size:.94rem;line-height:1.5;
+  }
+  .lbox .lbox-close{
+    position:absolute;top:18px;right:22px;width:44px;height:44px;
+    border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;
+    border-radius:10px;font-size:1.4rem;line-height:1;cursor:pointer;
+    transition:background .18s,border-color .18s;
+  }
+  .lbox .lbox-close:hover{background:rgba(255,255,255,.14);border-color:#fff}
+  .lbox .lbox-nav{
+    position:absolute;top:50%;transform:translateY(-50%);
+    width:48px;height:60px;border:1px solid rgba(255,255,255,.28);
+    background:transparent;color:#fff;border-radius:10px;
+    font-size:1.5rem;line-height:1;cursor:pointer;transition:background .18s;
+  }
+  .lbox .lbox-nav:hover{background:rgba(255,255,255,.14)}
+  .lbox .lbox-prev{left:18px}
+  .lbox .lbox-next{right:18px}
+  .lbox .lbox-count{
+    position:absolute;bottom:20px;left:50%;transform:translateX(-50%);
+    color:#9fb0bb;font-size:.82rem;letter-spacing:.06em;
+  }
+  @media (max-width:760px){
+    .site-gallery{grid-template-columns:1fr 1fr;gap:11px}
+    .site-gallery figcaption{font-size:.8rem}
+    .lbox{padding:16px}
+    .lbox .lbox-nav{width:40px;height:52px}
+  }
+  @media (max-width:460px){
+    .site-gallery{grid-template-columns:1fr}
+  }
+
   /* ---------- HOBBIES & CO-CURRICULAR ---------- */
   .act-group{margin-bottom:44px}
   .act-group:last-child{margin-bottom:0}
@@ -559,7 +628,7 @@
         <div>
           <!-- DRAFT bio built from your documents — edit freely and send me your final version -->
           <p>I'm a Materials and Metallurgical Engineering graduate from Bangladesh University of Engineering and Technology (BUET), one of the most competitive engineering universities in Bangladesh. I completed my B.Sc. in June 2026 with a CGPA of 3.64 on a 4.00 scale, ranking 15th in a graduating class of 59.</p>
-          <p>My undergraduate thesis focused on lead-free piezoelectric ceramics — synthesizing and characterizing KNN–BCHfT composites as a safer alternative to lead-based PZT. Alongside it, my coursework and lab training built a strong foundation in materials characterization, physical metallurgy, corrosion and surface engineering, and the functional behaviour of electronic ceramics. An industrial attachment at Abul Khair Steel Melting Limited added hands-on exposure to real metallurgical processing.</p>
+          <p>My undergraduate thesis focused on lead-free piezoelectric ceramics — synthesizing and characterizing KNN–BCHfT composites as a safer alternative to lead-based PZT. Alongside it, my coursework and lab training built a strong foundation in materials characterization, physical metallurgy, corrosion and surface engineering, and the functional behaviour of electronic ceramics. Two industrial attachments — at Abul Khair Steel Melting Limited and at BITAC — added hands-on exposure to real metallurgical processing and to the precision manufacturing that turns a specified material into a part.</p>
           <p>Building on that foundation, I'm now seeking a funded MSc/PhD abroad in materials science. My interests sit at the intersection of electronic, optical and magnetic materials — functional and piezoelectric ceramics, thin films, and photonic devices such as lasers, LEDs and photovoltaics — where I want to link fundamental structure–property understanding to real, working devices. Longer term, I aim to build a strong research foundation in graduate school and carry that expertise into industry, turning advanced-materials research into practical applications.</p>
         </div>
         <aside class="side-card">
@@ -629,10 +698,56 @@
     <p class="subhead">Training &amp; industry experience</p>
     <div class="timeline">
       <div class="edu">
-        <div class="year">March 2025</div>
-        <h3>Industrial Training — Materials &amp; Metallurgy</h3>
+        <div class="year">11 — 20 March 2025</div>
+        <h3>Industrial Training — Manufacturing &amp; Precision Engineering</h3>
+        <div class="school"><a class="inst-link" href="https://bitac.gov.bd/" target="_blank" rel="noopener">Bangladesh Industrial Technical Assistance Centre (BITAC), Dhaka<span class="ext">↗</span></a></div>
+        <p class="detail">A hands-on attachment at Bangladesh's national centre for industrial technical training. I worked with lathe, milling and CNC machines to understand precision engineering, practised TIG, arc and spot welding, and studied heat treatment, foundry operations and dimensional inspection. The programme also covered industrial automation and robotics, CAD-CAM applications, and production-control strategy — a useful counterweight to the metallurgy-heavy AKSML attachment, since it dealt with how a specified material is actually turned into a part.</p>
+        <div class="site-gallery">
+          <figure>
+            <button class="shotbtn" type="button" data-full="bitac-turret-lathe.jpg" data-cap="<b>Machine shop.</b> Vertical turret lathe used for heavy rotational work." aria-label="Enlarge: Vertical turret lathe in the BITAC machine shop">
+              <img src="bitac-turret-lathe.jpg" alt="Vertical turret lathe in the BITAC machine shop" loading="lazy" />
+            </button>
+            <figcaption><b>Machine shop.</b> Vertical turret lathe used for heavy rotational work.</figcaption>
+          </figure>
+          <figure>
+            <button class="shotbtn" type="button" data-full="bitac-cmm.jpg" data-cap="<b>Metrology lab.</b> Mitutoyo CRYSTA-Apex V coordinate measuring machine for dimensional inspection." aria-label="Enlarge: Mitutoyo CRYSTA-Apex V coordinate measuring machine at BITAC">
+              <img src="bitac-cmm.jpg" alt="Mitutoyo CRYSTA-Apex V coordinate measuring machine at BITAC" loading="lazy" />
+            </button>
+            <figcaption><b>Metrology lab.</b> Mitutoyo CRYSTA-Apex V coordinate measuring machine for dimensional inspection.</figcaption>
+          </figure>
+          <figure>
+            <button class="shotbtn" type="button" data-full="bitac-portrait.jpg" data-cap="<b>On site.</b> At the BITAC campus, Dhaka." aria-label="Enlarge: Pritom Majumder at the BITAC campus entrance in Dhaka">
+              <img src="bitac-portrait.jpg" alt="Pritom Majumder at the BITAC campus entrance in Dhaka" loading="lazy" />
+            </button>
+            <figcaption><b>On site.</b> At the BITAC campus, Dhaka.</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="edu">
+        <div class="year">3 — 9 March 2025</div>
+        <h3>Industrial Training — Steel Melting &amp; Metallurgy</h3>
         <div class="school"><a class="inst-link" href="https://abulkhairsteel.com/" target="_blank" rel="noopener">Abul Khair Steel Melting Limited (AKSML), Chittagong<span class="ext">↗</span></a></div>
-        <p class="detail">Completed an industrial attachment at one of Bangladesh's largest steel producers, gaining first-hand exposure to steel melting and metallurgical processing. Recognized with a Letter of Appreciation for professionalism and work ethic.</p>
+        <p class="detail">An attachment at one of Bangladesh's largest steel producers, following the route from scrap to finished bar: charge selection using heavy melting steel, hot briquetted iron and pig iron; melting in the electric arc furnace; secondary refining in the ladle furnace; and continuous casting into billets. I also saw rolling-mill practice using Quenching &amp; Tempering Bar (QTB) technology for structural steel, and the quality-control chain behind it — ICP-OES, XRF, handheld XRF and wet chemical analysis. Recognized with a Letter of Appreciation for professionalism and work ethic.</p>
+        <div class="site-gallery">
+          <figure>
+            <button class="shotbtn" type="button" data-full="aks-melting-shop.jpg" data-cap="<b>Melting shop.</b> The electric arc furnace bay, where charged scrap is melted before secondary refining." aria-label="Enlarge: Electric arc furnace and ladle handling floor at the AKSML melting shop">
+              <img src="aks-melting-shop.jpg" alt="Electric arc furnace and ladle handling floor at the AKSML melting shop" loading="lazy" />
+            </button>
+            <figcaption><b>Melting shop.</b> The electric arc furnace bay, where charged scrap is melted before secondary refining.</figcaption>
+          </figure>
+          <figure>
+            <button class="shotbtn" type="button" data-full="aks-oxygen-plant.jpg" data-cap="<b>Air separation unit.</b> Cryogenic vessels feeding the furnace, including 250 kL liquid-oxygen storage." aria-label="Enlarge: Air separation unit with cryogenic vessels and a 250 kL liquid oxygen storage tank">
+              <img src="aks-oxygen-plant.jpg" alt="Air separation unit with cryogenic vessels and a 250 kL liquid oxygen storage tank" loading="lazy" />
+            </button>
+            <figcaption><b>Air separation unit.</b> Cryogenic vessels feeding the furnace, including 250 kL liquid-oxygen storage.</figcaption>
+          </figure>
+          <figure>
+            <button class="shotbtn" type="button" data-full="aks-portrait.jpg" data-cap="<b>On site.</b> At the oxygen plant during the plant walk-through." aria-label="Enlarge: Pritom Majumder in a hard hat at the AKSML oxygen plant">
+              <img src="aks-portrait.jpg" alt="Pritom Majumder in a hard hat at the AKSML oxygen plant" loading="lazy" />
+            </button>
+            <figcaption><b>On site.</b> At the oxygen plant during the plant walk-through.</figcaption>
+          </figure>
+        </div>
       </div>
     </div>
   </div>
@@ -1273,6 +1388,19 @@
   </div>
 </footer>
 
+
+<!-- lightbox for site-visit photos -->
+<div class="lbox" id="lbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lbox-close" type="button" aria-label="Close">&#215;</button>
+  <button class="lbox-nav lbox-prev" type="button" aria-label="Previous photo">&#8249;</button>
+  <button class="lbox-nav lbox-next" type="button" aria-label="Next photo">&#8250;</button>
+  <figure>
+    <img id="lbox-img" src="" alt="" />
+    <figcaption id="lbox-cap"></figcaption>
+  </figure>
+  <div class="lbox-count" id="lbox-count"></div>
+</div>
+
 <script>
   // year
   document.getElementById('yr').textContent = new Date().getFullYear();
@@ -1352,6 +1480,52 @@
       if(btn) btn.focus();
     }
   }
+
+
+  // ---------- SITE-VISIT PHOTO LIGHTBOX ----------
+  const lbox     = document.getElementById('lbox');
+  const lboxImg  = document.getElementById('lbox-img');
+  const lboxCap  = document.getElementById('lbox-cap');
+  const lboxCnt  = document.getElementById('lbox-count');
+  const shots    = Array.from(document.querySelectorAll('.site-gallery .shotbtn'));
+  let shotIndex  = 0, lastFocus = null;
+
+  function renderShot(i){
+    const btn = shots[i];
+    if(!btn) return;
+    shotIndex     = i;
+    lboxImg.src   = btn.dataset.full;
+    lboxImg.alt   = btn.querySelector('img').alt;
+    lboxCap.innerHTML = btn.dataset.cap;
+    lboxCnt.textContent = (i + 1) + ' / ' + shots.length;
+  }
+  function openShot(i){
+    lastFocus = document.activeElement;
+    renderShot(i);
+    lbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    lbox.querySelector('.lbox-close').focus();
+  }
+  function closeShot(){
+    lbox.classList.remove('open');
+    document.body.style.overflow = '';
+    lboxImg.src = '';
+    if(lastFocus) lastFocus.focus();
+  }
+  const stepShot = d => renderShot((shotIndex + d + shots.length) % shots.length);
+
+  shots.forEach((btn, i) => btn.addEventListener('click', () => openShot(i)));
+  lbox.querySelector('.lbox-close').addEventListener('click', closeShot);
+  lbox.querySelector('.lbox-prev').addEventListener('click', () => stepShot(-1));
+  lbox.querySelector('.lbox-next').addEventListener('click', () => stepShot(1));
+  // click the backdrop (but not the photo) to dismiss
+  lbox.addEventListener('click', e => { if(e.target === lbox) closeShot(); });
+  document.addEventListener('keydown', e => {
+    if(!lbox.classList.contains('open')) return;
+    if(e.key === 'Escape')     closeShot();
+    if(e.key === 'ArrowLeft')  stepShot(-1);
+    if(e.key === 'ArrowRight') stepShot(1);
+  });
 
   termBtns.forEach((btn, i) => {
     btn.addEventListener('click', () => showTerm(btn.dataset.term));
