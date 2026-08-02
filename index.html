@@ -1548,6 +1548,40 @@
   // year
   document.getElementById('yr').textContent = new Date().getFullYear();
 
+  // ---------- PRIVATE VISIT ANALYTICS (GoatCounter) ----------
+  // Nothing is rendered on this page. Stats live on your own GoatCounter
+  // dashboard; visitors see and download nothing extra until GC_CODE is set.
+  var GC_CODE = 'YOURCODE';          // <-- replace with your GoatCounter code
+  window.trackView = function(){};   // no-op until configured
+
+  if (GC_CODE && GC_CODE !== 'YOURCODE') {
+    // this site routes by #hash, so we count each virtual page ourselves
+    window.goatcounter = { no_onload: true };
+
+    var gcQueue = [];
+    var gcReady = function(){ return window.goatcounter && window.goatcounter.count; };
+
+    window.trackView = function(id){
+      var p = location.pathname + '#' + (id || 'about');
+      if (gcReady()) window.goatcounter.count({ path: p });
+      else gcQueue.push(p);          // script still loading: hold it
+    };
+
+    var gcScript = document.createElement('script');
+    gcScript.async = true;
+    gcScript.src = '//gc.zgo.at/count.js';
+    gcScript.setAttribute('data-goatcounter', 'https://' + GC_CODE + '.goatcounter.com/count');
+    document.head.appendChild(gcScript);
+
+    // count.js is async, so flush anything queued once it lands
+    var gcTimer = setInterval(function(){
+      if (!gcReady()) return;
+      clearInterval(gcTimer);
+      while (gcQueue.length) window.goatcounter.count({ path: gcQueue.shift() });
+    }, 200);
+    setTimeout(function(){ clearInterval(gcTimer); }, 20000);  // give up quietly
+  }
+
   // ---------- PAGE ROUTER ----------
   const pages    = Array.from(document.querySelectorAll('.page'));
   const navLinks = Array.from(document.querySelectorAll('nav.links a[data-nav]'));
@@ -1594,6 +1628,8 @@
     // close the mobile menu after navigating
     menu.classList.remove('open');
     toggle.setAttribute('aria-expanded', 'false');
+
+    window.trackView(id);
   }
 
   // hash drives navigation (gives shareable URLs + working back/forward)
