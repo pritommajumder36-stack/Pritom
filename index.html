@@ -310,6 +310,17 @@
   }
   .site-gallery figcaption b{color:var(--slate);font-weight:500}
 
+
+  /* narrower galleries when a group has only one or two photos */
+  .site-gallery.g1{grid-template-columns:minmax(0,440px)}
+  .site-gallery.g2{grid-template-columns:repeat(2,1fr);max-width:720px}
+  .act-intro{max-width:70ch;margin:0 0 8px}
+  .gal-head{
+    font-family:var(--mono);font-size:.82rem;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--steel);margin:34px 0 14px;padding-bottom:9px;border-bottom:1px solid var(--line);
+  }
+  .gal-head:first-of-type{margin-top:26px}
+
   /* lightbox */
   .lbox{
     position:fixed;inset:0;z-index:200;display:none;
@@ -1208,7 +1219,7 @@
     <div class="sec-head">
       <p class="eyebrow">Beyond the lab</p>
       <h2>Hobbies &amp; co-curricular</h2>
-      <p>A little of what I do outside research. Pick a card to see more.</p>
+      <p>What I do outside the lab — debating, volunteering, training, and travel. Pick a card to see more.</p>
     </div>
 
     <!-- ---- Hobbies ---- -->
@@ -1218,13 +1229,13 @@
         <a class="proj activity-card" href="#act-tour">
           <div class="kicker">Hobby</div>
           <h3>Tour</h3>
-          <p>Places I've travelled and the trips worth remembering.</p>
+          <p>The hill tracts, the coast, and old architecture — mostly around Bangladesh.</p>
           <span class="act-go">Explore <span>&rarr;</span></span>
         </a>
         <a class="proj activity-card" href="#act-gym">
           <div class="kicker">Hobby</div>
           <h3>Gym</h3>
-          <p>Training, consistency, and staying in shape.</p>
+          <p>Training at the BUET gymnasium, and helping run its winter competition.</p>
           <span class="act-go">Explore <span>&rarr;</span></span>
         </a>
       </div>
@@ -1237,13 +1248,13 @@
         <a class="proj activity-card" href="#act-clubs">
           <div class="kicker">Co-curricular</div>
           <h3>Clubs</h3>
-          <p>Student clubs and societies I've been part of.</p>
+          <p>Four years of competitive debating, and volunteering with Badhon.</p>
           <span class="act-go">Explore <span>&rarr;</span></span>
         </a>
         <a class="proj activity-card" href="#act-others">
           <div class="kicker">Co-curricular</div>
           <h3>Others</h3>
-          <p>Volunteering, events, and everything else.</p>
+          <p>Seminars, training programmes and departmental events.</p>
           <span class="act-go">Explore <span>&rarr;</span></span>
         </a>
       </div>
@@ -1258,26 +1269,81 @@
     <div class="sec-head">
       <p class="eyebrow">Hobby</p>
       <h2>Tour</h2>
-      <p class="draft">Short intro about your travels — send me a line or two and I'll drop it in here.</p>
     </div>
 
-    <div class="cards">
-      <!--
-        Each trip is one card. Send me, per trip:
-          • a title (place + year)      • 1–2 sentences
-          • optional photo(s)           • optional link
-        and I'll build it in this shape:
+    <p class="act-intro">Travelling is how I switch off. Most of it has been inside Bangladesh — the hill districts in the south-east, the coast, and whatever old architecture I can reach on a long weekend.</p>
 
-        <article class="proj">
-          <div class="kicker">Place · Year</div>
-          <h3>Trip title</h3>
-          <p>What the trip was and why it stuck with you.</p>
-        </article>
-      -->
-      <article class="proj proj-feature act-placeholder">
-        <p class="fill">Materials coming soon — send me photos, captions, dates and places, and any links, and I'll fill this out.</p>
-      </article>
-    </div>
+    <p class="gal-head">Chittagong Hill Tracts</p>
+        <div class="site-gallery">
+          <figure>
+            <button class="shotbtn" type="button" data-full="bandarban-2025.jpg" data-cap="<b>Bandarban, 2025.</b> Ridge road through the hill tracts." aria-label="Enlarge: Standing on a hill road in Bandarban with layered green ridges behind">
+              <img src="bandarban-2025.jpg" alt="Standing on a hill road in Bandarban with layered green ridges behind" loading="lazy" style="object-position:center 68%" />
+            </button>
+            <figcaption><b>Bandarban, 2025.</b> Ridge road through the hill tracts.</figcaption>
+          </figure>
+          <figure>
+            <button class="shotbtn" type="button" data-full="naikhongchhari-2024.jpg" data-cap="<b>Naikhongchhari, 2024.</b> Viewpoint over the forest in Bandarban district." aria-label="Enlarge: Leaning on a viewpoint railing above forest at Naikhongchhari">
+              <img src="naikhongchhari-2024.jpg" alt="Leaning on a viewpoint railing above forest at Naikhongchhari" loading="lazy" style="object-position:center 42%" />
+            </button>
+            <figcaption><b>Naikhongchhari, 2024.</b> Viewpoint over the forest in Bandarban district.</figcaption>
+          </figure>
+          <figure>
+            <button class="shotbtn" type="button" data-full="kaptai-lake-2024.jpg" data-cap="<b>Kaptai Lake, Rangamati, 2024.</b> Crossing the lake by country boat." aria-label="Enlarge: Standing at the bow of a wooden boat crossing Kaptai Lake">
+              <img src="kaptai-lake-2024.jpg" alt="Standing at the bow of a wooden boat crossing Kaptai Lake" loading="lazy" style="object-position:center 42%" />
+            </button>
+            <figcaption><b>Kaptai Lake, Rangamati, 2024.</b> Crossing the lake by country boat.</figcaption>
+          </figure>
+          <figure>
+            <button class="shotbtn" type="button" data-full="rangamati-2024.jpg" data-cap="<b>Rangamati, 2024.</b> Sculpture group on the way into town." aria-label="Enlarge: Sculpture group of four women carrying water pitchers in Rangamati">
+              <img src="rangamati-2024.jpg" alt="Sculpture group of four women carrying water pitchers in Rangamati" loading="lazy" />
+            </button>
+            <figcaption><b>Rangamati, 2024.</b> Sculpture group on the way into town.</figcaption>
+          </figure>
+          <figure>
+            <button class="shotbtn" type="button" data-full="pahari-museum-2024.jpg" data-cap="<b>Pahari Museum, Rangamati, 2024.</b> A bamboo house interior with woven craft and archive panels." aria-label="Enlarge: Interior of a bamboo house at the Pahari Museum showing woven baskets and photo panels">
+              <img src="pahari-museum-2024.jpg" alt="Interior of a bamboo house at the Pahari Museum showing woven baskets and photo panels" loading="lazy" />
+            </button>
+            <figcaption><b>Pahari Museum, Rangamati, 2024.</b> A bamboo house interior with woven craft and archive panels.</figcaption>
+          </figure>
+        </div>
+
+    <p class="gal-head">Coast &amp; islands</p>
+        <div class="site-gallery">
+          <figure>
+            <button class="shotbtn" type="button" data-full="saint-martin-2025.jpg" data-cap="<b>Saint Martin’s Island, 2025.</b> On the crossing to Bangladesh’s only coral island." aria-label="Enlarge: On the deck of a ship crossing to Saint Martin’s Island over turquoise water">
+              <img src="saint-martin-2025.jpg" alt="On the deck of a ship crossing to Saint Martin’s Island over turquoise water" loading="lazy" style="object-position:center 35%" />
+            </button>
+            <figcaption><b>Saint Martin’s Island, 2025.</b> On the crossing to Bangladesh’s only coral island.</figcaption>
+          </figure>
+          <figure>
+            <button class="shotbtn" type="button" data-full="coxs-bazar-2025.jpg" data-cap="<b>Cox’s Bazar, 2025.</b> On the rocks at the south end of the beach." aria-label="Enlarge: Sitting on a boulder in the surf at Cox’s Bazar">
+              <img src="coxs-bazar-2025.jpg" alt="Sitting on a boulder in the surf at Cox’s Bazar" loading="lazy" style="object-position:center 62%" />
+            </button>
+            <figcaption><b>Cox’s Bazar, 2025.</b> On the rocks at the south end of the beach.</figcaption>
+          </figure>
+          <figure>
+            <button class="shotbtn" type="button" data-full="alexander-beach-2022.jpg" data-cap="<b>Alexander Beach, Noakhali, 2022.</b> A trip home with friends." aria-label="Enlarge: Five friends standing with their backs to the camera facing the water at Alexander Beach">
+              <img src="alexander-beach-2022.jpg" alt="Five friends standing with their backs to the camera facing the water at Alexander Beach" loading="lazy" />
+            </button>
+            <figcaption><b>Alexander Beach, Noakhali, 2022.</b> A trip home with friends.</figcaption>
+          </figure>
+        </div>
+
+    <p class="gal-head">Heritage &amp; countryside</p>
+        <div class="site-gallery g2">
+          <figure>
+            <button class="shotbtn" type="button" data-full="panam-nagar-2023.jpg" data-cap="<b>Panam Nagar, Sonargaon, 2023.</b> The abandoned merchant town, with its arcaded brickwork." aria-label="Enlarge: Group sitting on the steps of a colonial-era brick building at Panam Nagar">
+              <img src="panam-nagar-2023.jpg" alt="Group sitting on the steps of a colonial-era brick building at Panam Nagar" loading="lazy" style="object-position:center 60%" />
+            </button>
+            <figcaption><b>Panam Nagar, Sonargaon, 2023.</b> The abandoned merchant town, with its arcaded brickwork.</figcaption>
+          </figure>
+          <figure>
+            <button class="shotbtn" type="button" data-full="birishiri-2022.jpg" data-cap="<b>Birishiri, Netrokona, 2022.</b> Hills and rice fields near the Garo border." aria-label="Enlarge: Standing on a green hillside at Birishiri">
+              <img src="birishiri-2022.jpg" alt="Standing on a green hillside at Birishiri" loading="lazy" style="object-position:center 38%" />
+            </button>
+            <figcaption><b>Birishiri, Netrokona, 2022.</b> Hills and rice fields near the Garo border.</figcaption>
+          </figure>
+        </div>
   </div>
 </section>
 
@@ -1288,18 +1354,17 @@
     <div class="sec-head">
       <p class="eyebrow">Hobby</p>
       <h2>Gym</h2>
-      <p class="draft">Short intro about your training — send me a line or two and I'll drop it in here.</p>
     </div>
 
-    <div class="cards">
-      <!--
-        Drop in whatever you want to show here — a routine, milestones,
-        a few photos. One .proj card per item, same shape as above.
-      -->
-      <article class="proj proj-feature act-placeholder">
-        <p class="fill">Materials coming soon — send me photos, a short write-up, or anything you'd like shown here.</p>
-      </article>
-    </div>
+    <p class="act-intro">The gym is my other constant. Training in the BUET gymnasium got me into helping run it as well as use it — in 2025 I organised the Winter Fitness Competition with the resident trainer, covering push-ups, pull-ups, bench press, skipping, plank and squats, with prizes for the top three in each category.</p>
+        <div class="site-gallery g1">
+          <figure>
+            <button class="shotbtn" type="button" data-full="winter-fitness-2025.jpg" data-cap="<b>Winter Fitness Competition 2025, BUET Gymnasium.</b> Competitors and organisers after the prize-giving." aria-label="Enlarge: Competitors and organisers with trophies at the BUET Gymnasium Winter Fitness Competition 2025">
+              <img src="winter-fitness-2025.jpg" alt="Competitors and organisers with trophies at the BUET Gymnasium Winter Fitness Competition 2025" loading="lazy" />
+            </button>
+            <figcaption><b>Winter Fitness Competition 2025, BUET Gymnasium.</b> Competitors and organisers after the prize-giving.</figcaption>
+          </figure>
+        </div>
   </div>
 </section>
 
@@ -1310,25 +1375,56 @@
     <div class="sec-head">
       <p class="eyebrow">Co-curricular</p>
       <h2>Clubs</h2>
-      <p class="draft">Short intro about the clubs you joined — send me a line or two and I'll drop it in here.</p>
     </div>
 
-    <div class="cards">
-      <!--
-        One card per club. Send me, per club:
-          • club name                   • your role + years
-          • 1–2 sentences on what you did
-        Shape:
-
-        <article class="proj">
-          <div class="kicker">Role · 2022–2024</div>
-          <h3>Club name</h3>
-          <p>What the club is and what you did there.</p>
-        </article>
-      -->
-      <article class="proj proj-feature act-placeholder">
-        <p class="fill">Materials coming soon — send me each club's name, your role, the years, and a sentence or two.</p>
-      </article>
+    <p class="act-intro">Debating shaped my time at BUET more than anything else outside the lab — it is where I learned to build an argument under time pressure and defend it in front of a room.</p>
+    <div class="timeline">
+      <div class="edu">
+        <div class="year">2022 — 2026</div>
+        <h3>BUET Debating Club (BUETDC)</h3>
+        <div class="school">Director of Administration, Executive Committee (2025–26)</div>
+        <p class="detail">I joined as a first-year competitor and stayed for four years, moving from Executive Committee Member (2023–24) to Information Secretary and then to Director of Administration. Alongside the administrative side, I competed in both British Parliamentary and Asian Parliamentary formats — finalist at the BUET Freshers’ Tournament, and a competitor at the Inter-Faculty Tournament 2024 and the 6th GSCDC Nationals 2024. I also sat on the organising panel for BUETDC Nationals.</p>
+        <div class="site-gallery">
+          <figure>
+            <button class="shotbtn" type="button" data-full="buetdc-nationals-2023.jpg" data-cap="<b>11th BUETDC Nationals, 2023.</b> On the organising panel for the club’s national tournament, held under the “Renaissance” banner." aria-label="Enlarge: Four organisers beside Renaissance banners at the 11th BUETDC Nationals">
+              <img src="buetdc-nationals-2023.jpg" alt="Four organisers beside Renaissance banners at the 11th BUETDC Nationals" loading="lazy" />
+            </button>
+            <figcaption><b>11th BUETDC Nationals, 2023.</b> On the organising panel for the club’s national tournament, held under the “Renaissance” banner.</figcaption>
+          </figure>
+          <figure>
+            <button class="shotbtn" type="button" data-full="buetdc-exec-crest.jpg" data-cap="<b>Executive Committee crest, 2023–24.</b> Awarded for serving on the committee that ran the 11th Nationals." aria-label="Enlarge: Acrylic and wood crest engraved BUETDC Executive Committee Member 2023-24">
+              <img src="buetdc-exec-crest.jpg" alt="Acrylic and wood crest engraved BUETDC Executive Committee Member 2023-24" loading="lazy" style="object-position:center 62%" />
+            </button>
+            <figcaption><b>Executive Committee crest, 2023–24.</b> Awarded for serving on the committee that ran the 11th Nationals.</figcaption>
+          </figure>
+          <figure>
+            <button class="shotbtn" type="button" data-full="buetdc-team-centaurus-2022.jpg" data-cap="<b>Team Centaurus, Freshers’ Tournament 2022.</b> My first competitive season with the club." aria-label="Enlarge: Group photo of Team Centaurus in a classroom at the Freshers’ Tournament">
+              <img src="buetdc-team-centaurus-2022.jpg" alt="Group photo of Team Centaurus in a classroom at the Freshers’ Tournament" loading="lazy" />
+            </button>
+            <figcaption><b>Team Centaurus, Freshers’ Tournament 2022.</b> My first competitive season with the club.</figcaption>
+          </figure>
+          <figure>
+            <button class="shotbtn" type="button" data-full="buetdc-team.jpg" data-cap="<b>Club teammates.</b> Between rounds on campus." aria-label="Enlarge: Three club members in front of a painted mural at BUET">
+              <img src="buetdc-team.jpg" alt="Three club members in front of a painted mural at BUET" loading="lazy" style="object-position:center 58%" />
+            </button>
+            <figcaption><b>Club teammates.</b> Between rounds on campus.</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="edu">
+        <div class="year">2022 — present</div>
+        <h3>Badhon — voluntary blood donation organisation</h3>
+        <div class="school">Active member and blood donor</div>
+        <p class="detail">Badhon is a non-profit student organisation that connects hospital patients with voluntary blood donors. I donate myself and help with donor drives and awareness campaigns on campus.</p>
+        <div class="site-gallery g1">
+          <figure>
+            <button class="shotbtn" type="button" data-full="badhon-group.jpg" data-cap="<b>Badhon BUET unit.</b> The volunteer group at a campus gathering." aria-label="Enlarge: Large group of Badhon volunteers in red club shirts at a campus gathering">
+              <img src="badhon-group.jpg" alt="Large group of Badhon volunteers in red club shirts at a campus gathering" loading="lazy" />
+            </button>
+            <figcaption><b>Badhon BUET unit.</b> The volunteer group at a campus gathering.</figcaption>
+          </figure>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1340,17 +1436,52 @@
     <div class="sec-head">
       <p class="eyebrow">Co-curricular</p>
       <h2>Others</h2>
-      <p class="draft">Volunteering, events, competitions, anything else — send me the details and I'll drop them in here.</p>
     </div>
 
-    <div class="cards">
-      <!--
-        Catch-all for anything that isn't a club — volunteering, events,
-        competitions, workshops. One .proj card per item.
-      -->
-      <article class="proj proj-feature act-placeholder">
-        <p class="fill">Materials coming soon — send me the details for anything you'd like listed here.</p>
-      </article>
+    <p class="act-intro">Seminars, training programmes and departmental events — the parts of university life that happen between coursework and the lab.</p>
+    <div class="timeline">
+      <div class="edu">
+        <div class="year">2025</div>
+        <h3>Research Skill Development Programme</h3>
+        <div class="school">BUET</div>
+        <p class="detail">A departmental training programme on the practical side of doing research — literature work, methodology and scientific writing — run with faculty from the department.</p>
+        <div class="site-gallery g1">
+          <figure>
+            <button class="shotbtn" type="button" data-full="research-skill-programme-2025.jpg" data-cap="<b>Research Skill Development Programme, 2025.</b> Participants and faculty at the closing session." aria-label="Enlarge: Participants and faculty at the close of the Research Skill Development Programme">
+              <img src="research-skill-programme-2025.jpg" alt="Participants and faculty at the close of the Research Skill Development Programme" loading="lazy" />
+            </button>
+            <figcaption><b>Research Skill Development Programme, 2025.</b> Participants and faculty at the closing session.</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="edu">
+        <div class="year">2022</div>
+        <h3>Seminar on master’s study opportunities abroad</h3>
+        <div class="school">BUET</div>
+        <p class="detail">An early look at postgraduate study overseas — funding routes, application timelines and what supervisors look for. It is a large part of why I started planning for graduate research abroad when I did.</p>
+        <div class="site-gallery g1">
+          <figure>
+            <button class="shotbtn" type="button" data-full="duel-seminar-2022.jpg" data-cap="<b>Master’s opportunity seminar, BUET, 2022.</b> With the speakers and faculty after the session." aria-label="Enlarge: Speakers and attendees on stage in a BUET auditorium after a seminar on studying abroad">
+              <img src="duel-seminar-2022.jpg" alt="Speakers and attendees on stage in a BUET auditorium after a seminar on studying abroad" loading="lazy" style="object-position:center 55%" />
+            </button>
+            <figcaption><b>Master’s opportunity seminar, BUET, 2022.</b> With the speakers and faculty after the session.</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="edu">
+        <div class="year">June 2022</div>
+        <h3>Departmental reception programme</h3>
+        <div class="school">BUET Auditorium · Department of MME</div>
+        <p class="detail">One of the department’s annual reception evenings — performances, sketches and a full auditorium. I have helped on the organising side of departmental events, including running a treasure hunt for an intake reception.</p>
+        <div class="site-gallery g1">
+          <figure>
+            <button class="shotbtn" type="button" data-full="mme-reception-2022.jpg" data-cap="<b>Reception programme, BUET Auditorium, June 2022.</b> On stage during the evening’s performances." aria-label="Enlarge: Students performing on stage at the MME departmental reception in the BUET Auditorium">
+              <img src="mme-reception-2022.jpg" alt="Students performing on stage at the MME departmental reception in the BUET Auditorium" loading="lazy" />
+            </button>
+            <figcaption><b>Reception programme, BUET Auditorium, June 2022.</b> On stage during the evening’s performances.</figcaption>
+          </figure>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1487,7 +1618,9 @@
   const lboxImg  = document.getElementById('lbox-img');
   const lboxCap  = document.getElementById('lbox-cap');
   const lboxCnt  = document.getElementById('lbox-count');
-  const shots    = Array.from(document.querySelectorAll('.site-gallery .shotbtn'));
+  // navigation is scoped to the gallery that was clicked, so arrow keys never
+  // jump into a gallery on a different (hidden) page
+  let shots      = [];
   let shotIndex  = 0, lastFocus = null;
 
   function renderShot(i){
@@ -1514,7 +1647,12 @@
   }
   const stepShot = d => renderShot((shotIndex + d + shots.length) % shots.length);
 
-  shots.forEach((btn, i) => btn.addEventListener('click', () => openShot(i)));
+  document.querySelectorAll('.site-gallery .shotbtn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      shots = Array.from(btn.closest('.site-gallery').querySelectorAll('.shotbtn'));
+      openShot(shots.indexOf(btn));
+    });
+  });
   lbox.querySelector('.lbox-close').addEventListener('click', closeShot);
   lbox.querySelector('.lbox-prev').addEventListener('click', () => stepShot(-1));
   lbox.querySelector('.lbox-next').addEventListener('click', () => stepShot(1));
