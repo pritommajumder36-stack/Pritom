@@ -1551,10 +1551,10 @@
   // ---------- PRIVATE VISIT ANALYTICS (GoatCounter) ----------
   // Nothing is rendered on this page. Stats live on your own GoatCounter
   // dashboard; visitors see and download nothing extra until GC_CODE is set.
-  var GC_CODE = 'YOURCODE';          // <-- replace with your GoatCounter code
+  var GC_CODE = 'pritommajumder';    // your GoatCounter code (pritommajumder.goatcounter.com)
   window.trackView = function(){};   // no-op until configured
 
-  if (GC_CODE && GC_CODE !== 'YOURCODE') {
+  if (GC_CODE && GC_CODE !== 'YOURCODE') {   // still inert if reset to the placeholder
     // this site routes by #hash, so we count each virtual page ourselves
     window.goatcounter = { no_onload: true };
 
