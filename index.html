@@ -321,6 +321,32 @@
   }
   .gal-head:first-of-type{margin-top:26px}
 
+
+  /* posters & certificates: show the whole sheet, never crop */
+  .site-gallery.poster{grid-template-columns:minmax(0,360px)}
+  .site-gallery.poster img{aspect-ratio:auto;object-fit:contain;background:#fff}
+  .site-gallery.poster button.shotbtn{cursor:zoom-in}
+  .lbox.poster img{max-height:90vh}
+  .lbox.poster figcaption{margin-top:10px;font-size:.86rem}
+
+  /* language proficiency panel */
+  .lang-wrap{margin-top:34px;border-top:1px solid var(--line);padding-top:26px}
+  .lang-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+  .lang-head h3{margin:0;font-size:1.1rem}
+  .lang-head .meta{font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;color:var(--muted)}
+  .bands{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:760px}
+  .band{
+    border:1px solid var(--line);border-radius:var(--radius);background:var(--card);
+    padding:14px 16px;text-align:center;
+  }
+  .band .n{font-family:var(--mono);font-size:.74rem;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--muted);display:block;margin-bottom:7px}
+  .band .s{font-size:1.5rem;color:var(--ink);line-height:1}
+  .band.total{border-color:var(--copper);background:rgba(176,106,60,.06)}
+  .band.total .s{color:var(--copper-deep)}
+  .lang-note{margin-top:14px;color:var(--slate);font-size:.92rem}
+  @media (max-width:720px){.bands{grid-template-columns:repeat(2,1fr)}}
+
   /* lightbox */
   .lbox{
     position:fixed;inset:0;z-index:200;display:none;
@@ -842,6 +868,14 @@
         <p>We converted ferrous mill scale, a low-value steel-industry waste, into a chemically treated, hematite-rich iron-oxide adsorbent and built a low-cost bench-scale filtration column to remove Cu, Cr and Ni from wastewater. With the iron-oxide phases confirmed by XRD and metal removal quantified by AAS and UV–Vis, the adsorbent reached up to ~95.8% removal in mixed-metal solutions — closing the loop from industrial waste to clean water and recoverable metal.</p>
         <p class="proj-sup">Group 02 · Department of MME, BUET</p>
         <div class="tech"><span>Waste valorization</span><span>XRD</span><span>AAS</span><span>UV–Vis</span><span>Adsorption</span><span>Filtration design</span></div>
+        <div class="site-gallery poster">
+          <figure>
+            <button class="shotbtn" type="button" data-full="capstone-millsorp-poster.jpg" data-poster="1" data-cap="Capstone poster — <b>Millsorp: mill scale to metal free</b>. Click to enlarge." aria-label="Enlarge: Millsorp capstone project poster showing the mill-scale to adsorbent process, methodology and AAS results">
+              <img src="capstone-millsorp-poster.jpg" alt="Millsorp capstone project poster showing the mill-scale to adsorbent process, methodology and AAS results" loading="lazy" />
+            </button>
+            <figcaption>Capstone poster — <b>Millsorp: mill scale to metal free</b>. Click to enlarge.</figcaption>
+          </figure>
+        </div>
         <div class="proj-actions">
           <a class="btn btn-primary" href="capstone-millsorp.pdf" target="_blank" rel="noopener">Read report (PDF) ↗</a>
           <a class="btn btn-ghost" href="capstone-millsorp-slides.pptx">Presentation slides ↓</a>
@@ -1120,6 +1154,14 @@
         <h3>Catastrophic failures and their explanations</h3>
         <p>A team poster (Team ENIGMA) dissecting three engineering disasters — the Morbi bridge collapse, the Hindenburg airship fire and the Erika oil-spill tanker — tracing each back to root causes in fatigue, corrosion, aeroelastic flutter and material-selection error, and proposing practical remedies for each.</p>
         <div class="tech"><span>Failure analysis</span><span>Fatigue</span><span>Corrosion</span><span>Material selection</span><span>Fracture</span></div>
+        <div class="site-gallery poster">
+          <figure>
+            <button class="shotbtn" type="button" data-full="catastrophic-failures-poster.jpg" data-poster="1" data-cap="Course poster — <b>Catastrophic failures and their explanations</b> (Team ENIGMA). Click to enlarge." aria-label="Enlarge: Team ENIGMA poster analysing the Morbi bridge collapse, Hindenburg fire and Erika oil spill">
+              <img src="catastrophic-failures-poster.jpg" alt="Team ENIGMA poster analysing the Morbi bridge collapse, Hindenburg fire and Erika oil spill" loading="lazy" />
+            </button>
+            <figcaption>Course poster — <b>Catastrophic failures and their explanations</b> (Team ENIGMA). Click to enlarge.</figcaption>
+          </figure>
+        </div>
         <div class="proj-actions">
           <a class="btn btn-primary" href="catastrophic-failures-poster.pdf" target="_blank" rel="noopener">View poster (PDF) ↗</a>
         </div>
@@ -1237,6 +1279,23 @@
           <li>Presentation &amp; teamwork</li>
         </ul>
       </div>
+    </div>
+
+    <div class="lang-wrap">
+      <div class="lang-head">
+        <h3>Language proficiency</h3>
+        <span class="meta">IELTS Academic · 2026</span>
+      </div>
+      <div class="bands">
+        <div class="band"><span class="n">Listening</span><span class="s">7.5</span></div>
+        <div class="band"><span class="n">Reading</span><span class="s">7.5</span></div>
+        <div class="band"><span class="n">Writing</span><span class="s">6.0</span></div>
+        <div class="band"><span class="n">Speaking</span><span class="s">6.5</span></div>
+      </div>
+      <div class="bands" style="grid-template-columns:minmax(0,200px);margin-top:12px">
+        <div class="band total"><span class="n">Overall band</span><span class="s">7.0</span></div>
+      </div>
+      <p class="lang-note"><b>Bangla</b> — native. <b>English</b> — full professional working proficiency; all my degree coursework, laboratory reporting and technical writing were in English.</p>
     </div>
   </div>
 </section>
@@ -1496,6 +1555,20 @@
       </div>
       <div class="edu">
         <div class="year">2022</div>
+        <h3>Class Representative — Certificate of Appreciation</h3>
+        <div class="school">Department of Materials and Metallurgical Engineering, BUET</div>
+        <p class="detail">Elected by my classmates as Class Representative for Level 1, Terms I and II, before the department had a formal selection process. The role meant carrying academic notices both ways, raising student concerns with faculty, and helping schedule class tests and makeup classes. The department issued a Certificate of Appreciation for the service, signed by the Head of Department.</p>
+        <div class="site-gallery poster">
+          <figure>
+            <button class="shotbtn" type="button" data-full="cr-certificate.jpg" data-poster="1" data-cap="<b>Certificate of Appreciation</b> — for outstanding service as Class Representative, Department of MME, BUET. Click to enlarge." aria-label="Enlarge: BUET certificate of appreciation for service as Class Representative">
+              <img src="cr-certificate.jpg" alt="BUET Department of MME Certificate of Appreciation awarded to Pritom Majumder for outstanding service as Class Representative" loading="lazy" />
+            </button>
+            <figcaption><b>Certificate of Appreciation</b> — for outstanding service as Class Representative, Department of MME, BUET. Click to enlarge.</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="edu">
+        <div class="year">2022</div>
         <h3>Seminar on master’s study opportunities abroad</h3>
         <div class="school">BUET</div>
         <p class="detail">An early look at postgraduate study overseas — funding routes, application timelines and what supervisors look for. It is a large part of why I started planning for graduate research abroad when I did.</p>
@@ -1542,6 +1615,7 @@
       <div class="clinks">
         <a class="clink" href="mailto:pritommajumder36@gmail.com"><span class="l">Email</span><span class="v">pritommajumder36@gmail.com</span></a>
         <a class="clink" href="https://www.linkedin.com/in/pritom-majumder-602581227/" target="_blank" rel="noopener"><span class="l">LinkedIn</span><span class="v">in/pritom-majumder-602581227 ↗</span></a>
+        <a class="clink" href="https://www.researchgate.net/profile/Pritom-Majumder" target="_blank" rel="noopener"><span class="l">ResearchGate</span><span class="v">Pritom Majumder ↗</span></a>
         <a class="clink" href="https://wa.me/8801859472796" target="_blank" rel="noopener"><span class="l">WhatsApp / Telegram</span><span class="v">+880 1859 472796 ↗</span></a>
         <a class="clink" href="thesis.pdf" target="_blank" rel="noopener"><span class="l">Thesis</span><span class="v">Read PDF ↗</span></a>
         <a class="clink" href="cv.pdf" download="Pritom_Majumder_CV.pdf"><span class="l">CV</span><span class="v">Download PDF ↓</span></a>
@@ -1706,6 +1780,7 @@
     lboxImg.src   = btn.dataset.full;
     lboxImg.alt   = btn.querySelector('img').alt;
     lboxCap.innerHTML = btn.dataset.cap;
+    lbox.classList.toggle('poster', btn.dataset.poster === '1');
     lboxCnt.textContent = (i + 1) + ' / ' + shots.length;
   }
   function openShot(i){
